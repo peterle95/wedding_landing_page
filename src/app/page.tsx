@@ -17,19 +17,15 @@ export default function Home() {
         </p>
         <div className="relative inline-block">
            <Image 
-              src="https://placehold.co/800x400.png"
+              src="/DSC05292.jpg"
               alt="Liliia and Peter" 
               width={800} 
               height={400} 
               className="rounded-lg object-cover"
-              data-ai-hint="couple portrait"
             />
-          <div className="absolute top-2 right-2 bg-background/80 p-2 rounded-full">
-            <PixelIcon icon="heart" className="w-8 h-8 text-accent" />
-          </div>
         </div>
       </header>
-      // AIzaSyBpQVrm_l_HxkIEir_HMs29GZLToi1PXGk google maps api
+      {/* AIzaSyBpQVrm_l_HxkIEir_HMs29GZLToi1PXGk google maps api */}
       <section className="my-16 md:my-24">
         <CountdownTimer />
       </section>
