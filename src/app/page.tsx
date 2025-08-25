@@ -62,7 +62,7 @@ export default function Home() {
               Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.
             </p>
             <p className="font-semibold text-lg">
-              Kindly RSVP by May 1st, 2026.
+              Kindly RSVP by 'select date'.
             </p>
             <Button asChild size="lg" className="w-full">
               <Link href="/rsvp">RSVP Now</Link>
