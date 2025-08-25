@@ -33,24 +33,21 @@ export default function Home() {
       <section className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
         <PixelatedCard title="Event Details">
           <ul className="space-y-6">
-            <li className="flex items-start gap-4">
-              <PixelIcon icon="calendar" className="w-8 h-8 text-primary mt-1" />
+            <li>
               <div>
                 <h3 className="font-semibold text-lg">Date & Time</h3>
                 <p className="text-muted-foreground">Saturday, June 6th, 2026</p>
                 <p className="text-muted-foreground">Ceremony at 4:00 PM</p>
               </div>
             </li>
-            <li className="flex items-start gap-4">
-              <PixelIcon icon="pin" className="w-8 h-8 text-primary mt-1" />
+            <li>
               <div>
                 <h3 className="font-semibold text-lg">Location</h3>
                 <p className="text-muted-foreground">The Grand Palace</p>
                 <p className="text-muted-foreground">123 Celebration Ave, Union City, CA</p>
               </div>
             </li>
-            <li className="flex items-start gap-4">
-              <PixelIcon icon="dress" className="w-8 h-8 text-primary mt-1" />
+            <li>
               <div>
                 <h3 className="font-semibold text-lg">Dress Code</h3>
                 <p className="text-muted-foreground">Formal Attire. Think elegant and festive!</p>
