@@ -9,7 +9,7 @@ import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog"
-import { PixelIcon } from "../components/pixel-icon"
+import { PixelIcon } from "@/components/pixel-icon"
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = React.useState<typeof photos[0] | null>(null)
