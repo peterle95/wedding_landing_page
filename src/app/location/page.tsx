@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function LocationPage() {
-  const address = "The Grand Palace, 123 Celebration Ave, Union City, CA";
+  const address = "Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
