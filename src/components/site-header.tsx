@@ -1,0 +1,81 @@
+"use client"
+
+import Link from "next/link"
+import * as React from "react"
+import { Menu, X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { PixelIcon } from "./pixel-icon"
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/location", label: "Location" },
+  { href: "/rsvp", label: "RSVP" },
+]
+
+export function SiteHeader() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center">
+        <Link href="/" className="mr-6 flex items-center space-x-2">
+          <PixelIcon icon="heart" className="h-6 w-6 text-primary"/>
+          <span className="font-bold sm:inline-block">
+            L&P Forever
+          </span>
+        </Link>
+        <nav className="hidden gap-6 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex flex-1 items-center justify-end">
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" className="md:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between border-b pb-4">
+                  <Link href="/" className="flex items-center space-x-2" onClick={() => setOpen(false)}>
+                    <PixelIcon icon="heart" className="h-6 w-6 text-primary" />
+                    <span className="font-bold">L&P Forever</span>
+                  </Link>
+                  <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
+                    <X className="h-6 w-6" />
+                    <span className="sr-only">Close Menu</span>
+                  </Button>
+                </div>
+                <nav className="flex flex-col gap-4 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-lg font-medium hover:text-primary"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
+  )
+}
