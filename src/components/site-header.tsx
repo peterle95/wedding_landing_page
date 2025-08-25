@@ -23,7 +23,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <PixelIcon icon="heart" className="h-6 w-6 text-primary"/>
           <span className="font-bold sm:inline-block">
             L&P Forever
           </span>
@@ -51,7 +50,6 @@ export function SiteHeader() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setOpen(false)}>
-                    <PixelIcon icon="heart" className="h-6 w-6 text-primary" />
                     <span className="font-bold">L&P Forever</span>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
