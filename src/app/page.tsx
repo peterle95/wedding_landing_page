@@ -37,20 +37,20 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-lg">Date & Time</h3>
                 <p className="text-muted-foreground">Saturday, June 6th, 2026</p>
-                <p className="text-muted-foreground">Ceremony at 4:00 PM</p>
+                <p className="text-muted-foreground">Ceremony at 1:00 PM</p>
               </div>
             </li>
             <li>
               <div>
                 <h3 className="font-semibold text-lg">Location</h3>
-                <p className="text-muted-foreground">The Grand Palace</p>
-                <p className="text-muted-foreground">123 Celebration Ave, Union City, CA</p>
+                <p className="text-muted-foreground">Castello di Rocca Grimalda</p>
+                <p className="text-muted-foreground">Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia</p>
               </div>
             </li>
             <li>
               <div>
                 <h3 className="font-semibold text-lg">Dress Code</h3>
-                <p className="text-muted-foreground">Formal Attire. Think elegant and festive!</p>
+                <p className="text-muted-foreground">"Add description here"</p>
               </div>
             </li>
           </ul>

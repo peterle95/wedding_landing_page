@@ -19,7 +19,7 @@ export default function LocationPage() {
           <PixelIcon icon="pin" className="w-8 h-8 text-primary"/>
         </div>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          We can't wait to see you at The Grand Palace.
+          We can't wait to see you in Rocca Grimalda.
         </p>
       </header>
 
@@ -27,9 +27,8 @@ export default function LocationPage() {
         <div className="order-2 md:order-1">
           <PixelatedCard title="Venue Address">
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold">The Grand Palace</h3>
-              <p className="text-muted-foreground text-lg">123 Celebration Ave</p>
-              <p className="text-muted-foreground text-lg">Union City, CA 94587</p>
+              <h3 className="text-2xl font-semibold">Castello di Rocca Grimalda</h3>
+              <p className="text-muted-foreground text-lg">Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia</p>
               <Button asChild size="lg" className="w-full">
                 <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
                   Open in Google Maps
