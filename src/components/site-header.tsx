@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import { PixelIcon } from "./pixel-icon"
 
 const navItems = [
@@ -47,6 +47,8 @@ export function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              {/* Visually hidden title for accessibility (required by Radix Dialog) */}
+              <SheetTitle className="sr-only">Site navigation</SheetTitle>
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setOpen(false)}>

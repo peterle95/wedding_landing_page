@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/icons8-favorite-48.png' },
-      new URL('/icons8-favorite-48.png', 'https://theweddingofthecentury.vercel.app'),
     ],
     apple: [
       { url: '/icons8-favorite-96.png' },
