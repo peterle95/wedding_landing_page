@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -66,10 +66,13 @@ export default function RsvpPage() {
     loadGuests();
   }, [toast]);
 
+  // Subscribe to confirmName changes to re-render this component on each keystroke
+  const confirmName = useWatch({ control: form.control, name: "confirmName" });
+
   function namesMatch() {
     return (
       selectedName.trim().toLowerCase() ===
-      (form.getValues("confirmName") || "").trim().toLowerCase()
+      (confirmName || "").trim().toLowerCase()
     );
   }
 
