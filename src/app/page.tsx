@@ -64,7 +64,7 @@ export default function Home() {
               Kindly RSVP by 'select date'.
             </p>
             <Button asChild size="lg" className="w-full">
-              <Link href="/api/rsvp">RSVP Now</Link>
+              <Link href="/rsvp">RSVP Now</Link>
             </Button>
           </div>
         </PixelatedCard>

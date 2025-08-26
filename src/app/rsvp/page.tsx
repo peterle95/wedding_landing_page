@@ -145,8 +145,8 @@ export default function RsvpPage() {
                           <SelectValue placeholder={loadingGuests ? "Loading..." : "Choose your name"} />
                         </SelectTrigger>
                         <SelectContent>
-                          {guests.map((g) => (
-                            <SelectItem key={g} value={g}>
+                          {guests.map((g, idx) => (
+                            <SelectItem key={`${g}-${idx}`} value={g}>
                               {g}
                             </SelectItem>
                           ))}
