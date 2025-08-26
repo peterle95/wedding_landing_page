@@ -1,4 +1,4 @@
-import { PixelIcon } from "@/components/pixel-icon";
+
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -12,11 +12,9 @@ export default function LocationPage() {
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center space-y-2 mb-12">
         <div className="inline-flex items-center gap-3">
-          <PixelIcon icon="pin" className="w-8 h-8 text-primary"/>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">
             How To Get There
           </h1>
-          <PixelIcon icon="pin" className="w-8 h-8 text-primary"/>
         </div>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           We can't wait to see you in Rocca Grimalda.
