@@ -7,6 +7,21 @@ import { cn } from '@/lib/utils';
 export const metadata: Metadata = {
   title: 'L&P Forever',
   description: 'The wedding website of Liliia & Peter',
+  icons: {
+    icon: [
+      { url: '/icons8-favorite-48.png' },
+      new URL('/icons8-favorite-48.png', 'https://theweddingofthecentury.vervel.app'),
+    ],
+    apple: [
+      { url: '/icons8-favorite-96.png' },
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/icons8-favorite-96.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
