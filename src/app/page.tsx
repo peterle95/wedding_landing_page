@@ -1,5 +1,4 @@
 import { CountdownTimer } from "@/components/countdown-timer";
-import { PixelIcon } from "@/components/pixel-icon";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -65,7 +64,7 @@ export default function Home() {
               Kindly RSVP by 'select date'.
             </p>
             <Button asChild size="lg" className="w-full">
-              <Link href="/rsvp">RSVP Now</Link>
+              <Link href="/api/rsvp">RSVP Now</Link>
             </Button>
           </div>
         </PixelatedCard>
