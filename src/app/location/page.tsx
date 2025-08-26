@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function LocationPage() {
-  const address = "Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia";
+  const address = "Castello di Rocca Grimalda";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
@@ -39,7 +39,7 @@ export default function LocationPage() {
         <div className="order-1 md:order-2 rounded-lg overflow-hidden border-2 border-foreground shadow-[6px_6px_0px_theme(colors.foreground)]">
           <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
             <Image
-              src="https://placehold.co/800x600.png"
+              src="/castello.jpg"
               alt="Map to The Grand Palace"
               width={800}
               height={600}
