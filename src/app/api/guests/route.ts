@@ -1,4 +1,5 @@
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
@@ -13,6 +14,11 @@ function getServiceAccountCredentials(): any {
   if (json) {
     return JSON.parse(json);
   }
+  // In production, require SERVICE_ACCOUNT_KEY to be set in env.
+  if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
+    throw new Error("Missing SERVICE_ACCOUNT_KEY env in production");
+  }
+  // Local dev fallback: read from file if available.
   const keyFile = process.env.GOOGLE_APPLICATION_CREDENTIALS || "./wedding-website-470208-88ce14691db5.json";
   const raw = fs.readFileSync(keyFile, "utf8");
   return JSON.parse(raw);
