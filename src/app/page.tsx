@@ -1,5 +1,4 @@
 import { CountdownTimer } from "@/components/countdown-timer";
-import { PixelIcon } from "@/components/pixel-icon";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
