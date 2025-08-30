@@ -109,7 +109,6 @@ export default function RsvpPage() {
       <div className="container mx-auto px-4 py-16 md:py-24 flex items-center justify-center">
         <PixelatedCard title="Thank You!">
           <div className="text-center space-y-6">
-            <PixelIcon icon="heart" className="w-16 h-16 text-accent mx-auto" />
             <h2 className="text-2xl font-bold">Your RSVP has been received!</h2>
             <p className="text-muted-foreground">We're so excited to celebrate with you.</p>
             <Button asChild>
