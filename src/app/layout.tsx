@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/site-header';
 import { cn } from '@/lib/utils';
+import { LanguageProvider } from '@/lib/i18n';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -39,11 +40,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
       <body className={cn("min-h-screen bg-background font-body antialiased", poppins.className)}>
-        <div className="relative flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-        </div>
-        <Toaster />
+        <LanguageProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+          </div>
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );
