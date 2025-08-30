@@ -2,29 +2,36 @@
 
 import * as React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 import { photos } from "@/lib/constants"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog"
+import { useLanguage } from "@/lib/i18n"
 
 export default function GalleryPage() {
+  const { t } = useLanguage()
   const [selectedImage, setSelectedImage] = React.useState<typeof photos[0] | null>(null)
 
   return (
     <>
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="text-center space-y-2 mb-12">
-          <div className="inline-flex items-center gap-3">
+          <div className="flex flex-col items-center gap-3">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">
-              Our Moments
+              {t('galleryTitle')}
             </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-center">
+              {t('galleryDescription')}
+            </p>
+            <Button asChild variant="outline" className="mt-4">
+              <Link href="/">{t('backToHome')}</Link>
+            </Button>
           </div>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of memories leading up to our special day.
-          </p>
         </header>
 
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">

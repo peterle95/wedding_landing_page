@@ -1,18 +1,23 @@
+"use client";
+
 import { CountdownTimer } from "@/components/countdown-timer";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center space-y-4">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground">
-          Liliia & Peter
+          {t('weddingTitle')}
         </h1>
         <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-          Are joyfully tying the knot and they can't wait to celebrate with you!
+          {t('weddingSubtitle')}
         </p>
         <div className="relative inline-block">
            <Image 
@@ -30,20 +35,20 @@ export default function Home() {
       </section>
 
       <section className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-        <PixelatedCard title="Event Details">
+        <PixelatedCard title={t('eventDetails')}>
           <ul className="space-y-6">
             <li>
               <div>
-                <h3 className="font-semibold text-lg">Date & Time</h3>
-                <p className="text-muted-foreground">Saturday, June 6th, 2026</p>
-                <p className="text-muted-foreground">Ceremony at 1:00 PM</p>
+                <h3 className="font-semibold text-lg">{t('dateTime')}</h3>
+                <p className="text-muted-foreground">{t('eventDate')}</p>
+                <p className="text-muted-foreground">{t('ceremonyTime')}</p>
               </div>
             </li>
             <li>
               <div>
-                <h3 className="font-semibold text-lg">Location</h3>
-                <p className="text-muted-foreground">Castello di Rocca Grimalda</p>
-                <p className="text-muted-foreground">Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia</p>
+                <h3 className="font-semibold text-lg">{t('locationTitle')}</h3>
+                <p className="text-muted-foreground">{t('venueName')}</p>
+                <p className="text-muted-foreground">{t('venueAddress')}</p>
               </div>
             </li>
             <li>
