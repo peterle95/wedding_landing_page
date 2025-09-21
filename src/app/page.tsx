@@ -60,16 +60,15 @@ export default function Home() {
           </ul>
         </PixelatedCard>
 
-        <PixelatedCard title="See You There?">
+        <PixelatedCard title={t('seeYouThere')}>
           <div className="space-y-4 text-center">
             <p className="text-muted-foreground">
-              Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.
-            </p>
+            {t('giftMessage')}            </p>
             <p className="font-semibold text-lg">
-              Kindly RSVP by 'select date'.
+            {t('rsvpByDate')}
             </p>
             <Button asChild size="lg" className="w-full">
-              <Link href="/rsvp">RSVP Now</Link>
+              <Link href="/rsvp">{t('rsvpButton')}</Link>
             </Button>
           </div>
         </PixelatedCard>

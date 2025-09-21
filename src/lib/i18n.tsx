@@ -74,6 +74,61 @@ const translations: Translations = {
     en: 'Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia',
     it: 'Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia',
   },
+  seeYouThere: {
+    en: 'See You There?',
+    it: 'Ci Vediamo Lì?',
+  },
+
+  giftMessage: {
+    en: 'Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.',
+    it: 'La tua presenza sarebbe il più grande regalo, ma se desideri onorarci con un regalo, una donazione al nostro fondo honeymoon sarebbe apprezzata.',
+  },
+
+  rsvpByDate: {
+    en: 'Kindly RSVP by May 1st, 2026.',
+    it: 'Fateci sapere entro il 1° Maggio 2026.',
+  },
+
+  rsvpButton: {
+    en: 'RSVP Now',
+    it: 'Conferma Ora',
+  },
+
+  locationTitle: {
+    en: 'Location',
+    it: 'Luogo',
+  },
+
+  locationSubtitle: {
+    en: 'We can\'t wait to see you in Rocca Grimalda.',
+    it: 'Non vediamo l\'ora di vederti a Rocca Grimalda.',
+  },
+
+   // Countdown
+   countdownTitle: {
+    en: 'Countdown to the Big Day!',
+    it: 'Conto alla rovescia per il grande giorno!',
+  },
+  days: {
+    en: 'days',
+    it: 'giorni',
+  },
+  hours: {
+    en: 'hours',
+    it: 'ore',
+  },
+  minutes: {
+    en: 'minutes',
+    it: 'minuti',
+  },
+  seconds: {
+    en: 'seconds',
+    it: 'secondi',
+  },
+  loadingCountdown: {
+    en: 'Loading countdown...',
+    it: 'Caricamento conto alla rovescia...',
+  },
   
   // RSVP
   rsvpTitle: {
