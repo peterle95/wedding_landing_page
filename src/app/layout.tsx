@@ -17,11 +17,23 @@ export const metadata: Metadata = {
   title: 'L&P Forever',
   description: 'The wedding website of Liliia & Peter',
   icons: {
-    icon: '/favicon.ico',
-    apple: [
-      { url: '/apple-touch-icon.png', type: 'image/png' },
+    icon: [
+      { url: '/icons8-favorite-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
-    shortcut: { url: '/favicon-32x32.png', type: 'image/png' },
+    shortcut: [
+      { url: '/favicon.ico' },
+    ],
+    apple: [
+      { url: '/icons8-favorite-96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/icons8-favorite-96.png',
+        sizes: '96x96',
+      },
+    ],
   },
 };
 
@@ -32,6 +44,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icons8-favorite-48.png" type="image/png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/icons8-favorite-96.png" sizes="96x96" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </head>
       <body className={cn("min-h-screen bg-background font-body antialiased", poppins.className)}>
         <LanguageProvider>
           <div className="relative flex min-h-screen flex-col">
