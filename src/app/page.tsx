@@ -53,9 +53,9 @@ export default function Home() {
             </li>
             <li>
               <div>
-                <h3 className="font-semibold text-lg">Dress Code</h3>
-                <p className="text-muted-foreground">"Add description here"</p>
-              </div>
+                <h3 className="font-semibold text-lg">{t('dressCode')}</h3>
+                <p className="text-muted-foreground">{t('dressCodeDescription')}</p>
+              </div>  
             </li>
           </ul>
         </PixelatedCard>
