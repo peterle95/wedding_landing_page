@@ -70,7 +70,7 @@ const translations: Translations = {
     en: 'Castello di Rocca Grimalda',
     it: 'Castello di Rocca Grimalda',
   },
-  venueAddress: {
+  Address: {
     en: 'Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia',
     it: 'Piazza Senatore Borgatta, 2, 15078 Rocca Grimalda AL, Italia',
   },

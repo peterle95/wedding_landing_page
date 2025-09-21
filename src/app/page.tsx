@@ -48,7 +48,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-lg">{t('locationTitle')}</h3>
                 <p className="text-muted-foreground">{t('venueName')}</p>
-                <p className="text-muted-foreground">{t('venueAddress')}</p>
+                <p className="text-muted-foreground">{t('Address')}</p>
               </div>
             </li>
             <li>
