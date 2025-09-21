@@ -18,15 +18,15 @@ export const metadata: Metadata = {
   description: 'The wedding website of Liliia & Peter',
   icons: {
     icon: [
-      { url: '/icons8-favorite-48.png' },
+      { url: '/favicon.ico', type: 'image/x-icon' }, // Default favicon
+      { url: '/icons8-favorite-48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icons8-favorite-96.png', type: 'image/png', sizes: '96x96' },
     ],
     apple: [
-      { url: '/icons8-favorite-96.png' },
-    ],
-    other: [
-      {
-        rel: 'apple-touch-icon-precomposed',
+      { 
         url: '/icons8-favorite-96.png',
+        sizes: '180x180',
+        type: 'image/png',
       },
     ],
   },
