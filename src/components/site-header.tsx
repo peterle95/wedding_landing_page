@@ -27,7 +27,7 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <span className="font-bold sm:inline-block">
-            L&P Forever
+            L&P
           </span>
         </Link>
         <nav className="hidden gap-6 md:flex">

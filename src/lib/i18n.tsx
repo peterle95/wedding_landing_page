@@ -92,6 +92,16 @@ const translations: Translations = {
     it: 'Ci Vediamo Lì?',
     ru: 'Увидимся там?',
   },
+  dressCode: {
+    en: 'Dress Code',
+    it: 'Dress Code',
+    ru: 'Код одежды',
+  },
+  dressCodeDescription: {
+    en: 'Colorful, modern and elegant',
+    it: 'Colori, moderno e elegante',
+    ru: 'Красивый, современный и элегантный',
+  },
 
   giftMessage: {
     en: 'Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.',
