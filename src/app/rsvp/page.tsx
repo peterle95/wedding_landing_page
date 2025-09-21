@@ -145,11 +145,9 @@ export default function RsvpPage() {
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center space-y-2 mb-12">
         <div className="inline-flex items-center gap-3">
-          <PixelIcon icon="rsvp" className="w-8 h-8 text-primary" />
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">
             {t('rsvpPageTitle')}
           </h1>
-          <PixelIcon icon="rsvp" className="w-8 h-8 text-primary" />
         </div>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           {t('rsvpPageSubtitle')}
