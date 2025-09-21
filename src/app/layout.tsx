@@ -17,20 +17,11 @@ export const metadata: Metadata = {
   title: 'L&P Forever',
   description: 'The wedding website of Liliia & Peter',
   icons: {
-    icon: [
-      { url: '/icons8-favorite-48.png' },
-      { url: '/favicon.ico' }, // Add this
-    ],
-    shortcut: '/favicon.ico', // Add this
+    icon: '/favicon.ico',
     apple: [
-      { url: '/icons8-favorite-96.png' },
+      { url: '/apple-touch-icon.png', type: 'image/png' },
     ],
-    other: [
-      {
-        rel: 'apple-touch-icon-precomposed',
-        url: '/icons8-favorite-96.png',
-      },
-    ],
+    shortcut: { url: '/favicon-32x32.png', type: 'image/png' },
   },
 };
 
