@@ -94,17 +94,7 @@ const translations: Translations = {
     it: 'Conferma Ora',
   },
 
-  locationTitle: {
-    en: 'Location',
-    it: 'Luogo',
-  },
-
-  locationSubtitle: {
-    en: 'We can\'t wait to see you in Rocca Grimalda.',
-    it: 'Non vediamo l\'ora di vederti a Rocca Grimalda.',
-  },
-
-   // Countdown
+   // Countdown 
    countdownTitle: {
     en: 'Countdown to the Big Day!',
     it: 'Conto alla rovescia per il grande giorno!',
@@ -236,6 +226,24 @@ const translations: Translations = {
   galleryDescription: {
     en: 'A collection of memories leading up to our special day.',
     it: 'Una raccolta di ricordi che ci hanno portato al nostro giorno speciale.',
+  },
+
+  // Location
+  howToGetThere: {
+    en: 'How To Get There',
+    it: 'Come Arrivare',
+  },
+  cantWaitToSeeYou: {
+    en: 'We can\'t wait to see you in Rocca Grimalda.',
+    it: 'Non vediamo l\'ora di vedervi a Rocca Grimalda.',
+  },
+  venueAddress: {
+    en: 'Venue Address',
+    it: 'Indirizzo',
+  },
+  openInGoogleMaps: {
+    en: 'Open in Google Maps',
+    it: 'Apri in Google Maps',
   },
   
   // Common
