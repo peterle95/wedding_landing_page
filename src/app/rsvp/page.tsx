@@ -26,6 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/lib/i18n";
 
 const rsvpFormSchema = z.object({
   confirmName: z.string().min(2, {
@@ -36,6 +37,7 @@ const rsvpFormSchema = z.object({
 type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
 
 export default function RsvpPage() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
   const [guests, setGuests] = useState<string[]>([]);
@@ -56,15 +58,19 @@ export default function RsvpPage() {
         const res = await fetch("/api/guests");
         const data = await res.json();
         if (res.ok) setGuests(data.guests || []);
-        else throw new Error(data.error || "Failed to load guests");
+        else throw new Error(data.error || t('errorLoadingGuests'));
       } catch (e: any) {
-        toast({ title: "Error", description: e.message, variant: "destructive" });
+        toast({ 
+          title: t('error'), 
+          description: e.message, 
+          variant: "destructive" 
+        });
       } finally {
         setLoadingGuests(false);
       }
     }
     loadGuests();
-  }, [toast]);
+  }, [toast, t]);
 
   // Subscribe to confirmName changes to re-render this component on each keystroke
   const confirmName = useWatch({ control: form.control, name: "confirmName" });
@@ -78,12 +84,20 @@ export default function RsvpPage() {
 
   async function handleSubmit(status: "Accepted" | "Declined") {
     if (!selectedName) {
-      toast({ title: "Pick your name", description: "Please select your name from the list.", variant: "destructive" });
+      toast({ 
+        title: t('pickYourName'), 
+        description: t('pleaseSelectName'), 
+        variant: "destructive" 
+      });
       return;
     }
     const valid = await form.trigger();
     if (!valid || !namesMatch()) {
-      toast({ title: "Name confirmation", description: "Typed name must match the selected name.", variant: "destructive" });
+      toast({ 
+        title: t('nameConfirmation'), 
+        description: t('nameMustMatch'), 
+        variant: "destructive" 
+      });
       return;
     }
     try {
@@ -94,11 +108,18 @@ export default function RsvpPage() {
         body: JSON.stringify({ name: selectedName, status }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Submission failed");
-      toast({ title: "RSVP sent!", description: `Thank you. Status: ${status}.` });
+      if (!res.ok) throw new Error(data.error || t('submissionFailed'));
+      toast({ 
+        title: t('rsvpSent'), 
+        description: `${t('thankYouStatus')} ${status === 'Accepted' ? t('accept') : t('decline')}` 
+      });
       setSubmitted(true);
     } catch (e: any) {
-      toast({ title: "Error", description: e.message, variant: "destructive" });
+      toast({ 
+        title: t('error'), 
+        description: e.message, 
+        variant: "destructive" 
+      });
     } finally {
       setSubmitting(false);
     }
@@ -107,13 +128,12 @@ export default function RsvpPage() {
   if (submitted) {
     return (
       <div className="container mx-auto px-4 py-16 md:py-24 flex items-center justify-center">
-        <PixelatedCard title="Thank You!">
+        <PixelatedCard title={t('thankYou')}>
           <div className="text-center space-y-6">
-            <PixelIcon icon="heart" className="w-16 h-16 text-accent mx-auto" />
-            <h2 className="text-2xl font-bold">Your RSVP has been received!</h2>
-            <p className="text-muted-foreground">We're so excited to celebrate with you.</p>
+            <h2 className="text-2xl font-bold">{t('rsvpReceived')}</h2>
+            <p className="text-muted-foreground">{t('excitedToCelebrate')}</p>
             <Button asChild>
-              <Link href="/">Back to Home</Link>
+              <Link href="/">{t('backToHome')}</Link>
             </Button>
           </div>
         </PixelatedCard>
@@ -126,26 +146,28 @@ export default function RsvpPage() {
       <header className="text-center space-y-2 mb-12">
         <div className="inline-flex items-center gap-3">
           <PixelIcon icon="rsvp" className="w-8 h-8 text-primary" />
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">Will You Be There?</h1>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">
+            {t('rsvpPageTitle')}
+          </h1>
           <PixelIcon icon="rsvp" className="w-8 h-8 text-primary" />
         </div>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          Please let us know if you can make it by May 1st, 2026.
+          {t('rsvpPageSubtitle')}
         </p>
       </header>
 
       <div className="max-w-2xl mx-auto">
-        <PixelatedCard title="RSVP">
+        <PixelatedCard title={t('rsvpTitle')}>
           <div className="space-y-6">
             <div>
               <Form {...form}>
                 <div className="space-y-6">
                   <FormItem>
-                    <FormLabel className="text-lg">Select Your Name</FormLabel>
+                    <FormLabel className="text-lg">{t('selectName')}</FormLabel>
                     <FormControl>
                       <Select onValueChange={setSelectedName} value={selectedName} disabled={loadingGuests}>
                         <SelectTrigger>
-                          <SelectValue placeholder={loadingGuests ? "Loading..." : "Choose your name"} />
+                          <SelectValue placeholder={loadingGuests ? t('loading') : t('chooseName')} />
                         </SelectTrigger>
                         <SelectContent>
                           {guests.map((g, idx) => (
@@ -164,9 +186,9 @@ export default function RsvpPage() {
                     name="confirmName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-lg">Type Your Name To Confirm</FormLabel>
+                        <FormLabel className="text-lg">{t('confirmName')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Start typing..." {...field} />
+                          <Input placeholder={t('startTyping')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -180,7 +202,7 @@ export default function RsvpPage() {
                       disabled={!selectedName || !namesMatch() || submitting}
                       className="w-full"
                     >
-                      Accept
+                      {t('accept')}
                     </Button>
                     <Button
                       type="button"
@@ -189,7 +211,7 @@ export default function RsvpPage() {
                       disabled={!selectedName || !namesMatch() || submitting}
                       className="w-full"
                     >
-                      Decline
+                      {t('decline')}
                     </Button>
                   </div>
                 </div>
