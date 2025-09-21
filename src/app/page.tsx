@@ -29,7 +29,7 @@ export default function Home() {
             />
         </div>
       </header>
-      {/* AIzaSyBpQVrm_l_HxkIEir_HMs29GZLToi1PXGk google maps api */}
+      {/* AIzaSyBpQVrm_l_HxkIEir_HMs29GZLToi1PXGk google maps api test*/}
       <section className="my-16 md:my-24">
         <CountdownTimer />
       </section>
