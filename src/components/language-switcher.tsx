@@ -2,40 +2,31 @@
 
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/lib/i18n';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Languages } from 'lucide-react';
 
 export function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'it' : 'en');
-  };
-
-  const nextLanguage = language === 'en' ? 'it' : 'en';
-  const tooltipText = language === 'en' 
-    ? 'Switch to Italian' 
-    : 'Passa all\'inglese';
-
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleLanguage}
-            className="ml-2"
-            aria-label={tooltipText}
-          >
-            <span className="text-xl">
-              {language === 'en' ? '🇮🇹' : '🇬🇧'}
-            </span>
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{tooltipText}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Languages className="h-[1.2rem] w-[1.2rem]" />
+          <span className="sr-only">Toggle language</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setLanguage('en')} disabled={language === 'en'}>
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage('it')} disabled={language === 'it'}>
+          Italiano
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage('ru')} disabled={language === 'ru'}>
+          Русский
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
