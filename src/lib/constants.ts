@@ -1,4 +1,4 @@
-export const weddingDate = "2026-06-06T16:00:00";
+export const weddingDate = "2026-06-27T16:00:00";
 
 export const photos = [
   { id: 1, src: "/DSC04414.jpg", alt: "Couple smiling", hint: "couple smiling" },

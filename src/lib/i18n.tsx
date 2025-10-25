@@ -63,14 +63,14 @@ const translations: Translations = {
     ru: 'Дата и время',
   },
   eventDate: {
-    en: 'Saturday, June 6th, 2026',
-    it: 'Sabato 6 Giugno 2026',
-    ru: 'Суббота, 6 июня 2026',
+    en: 'Saturday, June 27th, 2026',
+    it: 'Sabato 27 Giugno 2026',
+    ru: 'Суббота, 27 июня 2026',
   },
   ceremonyTime: {
-    en: 'Ceremony at 1:00 PM',
-    it: 'Cerimonia alle 13:00',
-    ru: 'Церемония в 13:00',
+    en: 'Ceremony at 4:00 PM',
+    it: 'Cerimonia alle 16:00',
+    ru: 'Церемония в 16:00',
   },
   locationTitle: {
     en: 'Location',
@@ -105,14 +105,14 @@ const translations: Translations = {
 
   giftMessage: {
     en: 'Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.',
-    it: 'La tua presenza sarebbe il più grande regalo, ma se desideri onorarci con un regalo, una donazione al nostro fondo honeymoon sarebbe apprezzata.',
+    it: 'La tua presenza sarebbe il più grande regalo, ma se desideri onorarci con un regalo, una donazione al nostro fondo di nozze sarebbe apprezzata.',
     ru: 'Ваше присутствие будет для нас лучшим подарком, но если вы хотите почтить нас подарком, мы будем искренне благодарны за вклад в наш медовый месяц.',
   },
 
   rsvpByDate: {
-    en: 'Kindly RSVP by May 1st, 2026.',
-    it: 'Fateci sapere entro il 1° Maggio 2026.',
-    ru: 'Пожалуйста, подтвердите ваше присутствие до 1 мая 2026 года.',
+    en: 'Kindly RSVP by February 1st, 2026.',
+    it: 'Fateci sapere entro il 1° Febbraio 2026.',
+    ru: 'Пожалуйста, подтвердите ваше присутствие до 1 февраля 2026 года.',
   },
 
   rsvpButton: {
@@ -163,11 +163,6 @@ const translations: Translations = {
     en: 'Please let us know if you can attend our special day',
     it: 'Fateci sapere se potete partecipare al nostro giorno speciale',
     ru: 'Пожалуйста, сообщите нам, если вы сможете присутствовать на нашем особом дне',
-  },
-  rsvpButton: {
-    en: 'RSVP Now',
-    it: 'Conferma Ora',
-    ru: 'Подтвердить',
   },
   rsvpPageTitle: {
     en: 'Will You Be There?',
