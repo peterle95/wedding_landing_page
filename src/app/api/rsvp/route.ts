@@ -14,7 +14,7 @@ function getServiceAccountCredentials(): any {
   if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
     throw new Error("Missing SERVICE_ACCOUNT_KEY env in production");
   }
-  const keyFile = process.env.GOOGLE_APPLICATION_CREDENTIALS || "./wedding-website-470208-88ce14691db5.json";
+  const keyFile = process.env.GOOGLE_APPLICATION_CREDENTIALS || "./workflow-431609-131520e174ca.json";
   const raw = fs.readFileSync(keyFile, "utf8");
   return JSON.parse(raw);
 }
