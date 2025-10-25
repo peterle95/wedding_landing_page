@@ -64,6 +64,14 @@ export default function Home() {
           <div className="space-y-4 text-center">
             <p className="text-muted-foreground">
             {t('giftMessage')}            </p>
+            {/* PayPal Donate Button */}
+            <div className="mb-6 flex justify-center">
+              <form action="https://www.paypal.com/donate" method="post" target="_top" className="inline-block">
+                <input type="hidden" name="hosted_button_id" value="9K5HUCPVLAAFE" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" className="hover:opacity-90 transition-opacity" />
+                <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+              </form>
+            </div>
             <p className="font-semibold text-lg">
             {t('rsvpByDate')}
             </p>

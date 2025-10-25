@@ -35,16 +35,9 @@ export async function POST(req: Request) {
 
     const body = await req.json();
     const name = (body?.name || "").toString().trim();
-    const status = (body?.status || "").toString().trim(); // Accepted | Declined
-    const foodPreference = (body?.foodPreference || "").toString().trim(); // Optional for declined
-
-    if (!name || !status) {
-      return NextResponse.json({ error: "Missing name or status" }, { status: 400 });
-    }
-
-    // For accepted RSVPs, food preference is required
-    if (status.toLowerCase() === "accepted" && !foodPreference) {
-      return NextResponse.json({ error: "Food preference required for accepted RSVP" }, { status: 400 });
+    const foodPreference = (body?.foodPreference || "").toString().trim();
+    if (!name || !foodPreference) {
+      return NextResponse.json({ error: "Missing name or food preference" }, { status: 400 });
     }
 
     const sheets = await getSheetsClient();
@@ -64,36 +57,18 @@ export async function POST(req: Request) {
     // Sheets API is 1-indexed. rowIndex is actual index in array; header is row 1.
     const sheetRowNumber = rowIndex + 1;
 
-    // Column G is RSVP status (7th column), Column I is food preference (9th column)
-    const updates = [];
-
-    // Update RSVP status
-    updates.push({
-      range: `'${SHEET_NAME}'!G${sheetRowNumber}:G${sheetRowNumber}`,
-      values: [[status]]
+    // Column I is food preference (9th column)
+    const updateRange = `'${SHEET_NAME}'!I${sheetRowNumber}:I${sheetRowNumber}`;
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: updateRange,
+      valueInputOption: "USER_ENTERED",
+      requestBody: { values: [[foodPreference]] },
     });
-
-    // Update food preference if provided
-    if (foodPreference) {
-      updates.push({
-        range: `'${SHEET_NAME}'!I${sheetRowNumber}:I${sheetRowNumber}`,
-        values: [[foodPreference]]
-      });
-    }
-
-    // Execute all updates
-    for (const update of updates) {
-      await sheets.spreadsheets.values.update({
-        spreadsheetId: SPREADSHEET_ID,
-        range: update.range,
-        valueInputOption: "USER_ENTERED",
-        requestBody: { values: update.values },
-      });
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {
-    console.error("/api/rsvp error", err);
+    console.error("/api/food-preferences save error", err);
     return NextResponse.json({ error: err?.message || "Unknown error" }, { status: 500 });
   }
 }
