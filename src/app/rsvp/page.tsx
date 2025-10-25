@@ -32,6 +32,7 @@ const rsvpFormSchema = z.object({
   confirmName: z.string().min(2, {
     message: "Please type your name to confirm.",
   }),
+  foodPreference: z.string().optional(),
 });
 
 type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
@@ -44,11 +45,15 @@ export default function RsvpPage() {
   const [selectedName, setSelectedName] = useState("");
   const [loadingGuests, setLoadingGuests] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [foodOptions, setFoodOptions] = useState<string[]>([]);
+  const [loadingFoodOptions, setLoadingFoodOptions] = useState(true);
+  const [selectedFoodPreference, setSelectedFoodPreference] = useState("");
 
   const form = useForm<RsvpFormValues>({
     resolver: zodResolver(rsvpFormSchema),
     defaultValues: {
       confirmName: "",
+      foodPreference: "",
     },
   });
 
@@ -72,6 +77,26 @@ export default function RsvpPage() {
     loadGuests();
   }, [toast, t]);
 
+  useEffect(() => {
+    async function loadFoodOptions() {
+      try {
+        const res = await fetch("/api/food-preferences");
+        const data = await res.json();
+        if (res.ok) setFoodOptions(data.foodOptions || []);
+        else throw new Error(data.error || t('foodPreferenceError'));
+      } catch (e: any) {
+        toast({
+          title: t('error'),
+          description: e.message,
+          variant: "destructive"
+        });
+      } finally {
+        setLoadingFoodOptions(false);
+      }
+    }
+    loadFoodOptions();
+  }, [toast, t]);
+
   // Subscribe to confirmName changes to re-render this component on each keystroke
   const confirmName = useWatch({ control: form.control, name: "confirmName" });
 
@@ -84,45 +109,71 @@ export default function RsvpPage() {
 
   async function handleSubmit(status: "Accepted" | "Declined") {
     if (!selectedName) {
-      toast({ 
-        title: t('pickYourName'), 
-        description: t('pleaseSelectName'), 
-        variant: "destructive" 
+      toast({
+        title: t('pickYourName'),
+        description: t('pleaseSelectName'),
+        variant: "destructive"
       });
       return;
     }
+
+    // For accepted RSVPs, require food preference
+    if (status === "Accepted" && !selectedFoodPreference) {
+      toast({
+        title: t('foodPreferenceRequired'),
+        description: t('pleaseSelectFoodPreference'),
+        variant: "destructive"
+      });
+      return;
+    }
+
     const valid = await form.trigger();
     if (!valid || !namesMatch()) {
-      toast({ 
-        title: t('nameConfirmation'), 
-        description: t('nameMustMatch'), 
-        variant: "destructive" 
+      toast({
+        title: t('nameConfirmation'),
+        description: t('nameMustMatch'),
+        variant: "destructive"
       });
       return;
     }
+
     try {
       setSubmitting(true);
+      const body: any = { name: selectedName, status };
+      if (status === "Accepted" && selectedFoodPreference) {
+        body.foodPreference = selectedFoodPreference;
+      }
+
       const res = await fetch("/api/rsvp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: selectedName, status }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || t('submissionFailed'));
-      toast({ 
-        title: t('rsvpSent'), 
-        description: `${t('thankYouStatus')} ${status === 'Accepted' ? t('accept') : t('decline')}` 
+      toast({
+        title: t('rsvpSent'),
+        description: `${t('thankYouStatus')} ${status === 'Accepted' ? t('accept') : t('decline')}`
       });
       setSubmitted(true);
     } catch (e: any) {
-      toast({ 
-        title: t('error'), 
-        description: e.message, 
-        variant: "destructive" 
+      toast({
+        title: t('error'),
+        description: e.message,
+        variant: "destructive"
       });
     } finally {
       setSubmitting(false);
     }
+  }
+
+  // Helper functions to determine when buttons should be shown
+  function shouldShowAcceptButton() {
+    return selectedName && namesMatch() && selectedFoodPreference;
+  }
+
+  function shouldShowDeclineButton() {
+    return selectedName && namesMatch();
   }
 
   if (submitted) {
@@ -181,6 +232,38 @@ export default function RsvpPage() {
 
                   <FormField
                     control={form.control}
+                    name="foodPreference"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">{t('selectFoodPreference')}</FormLabel>
+                        <FormControl>
+                          <Select
+                            onValueChange={(value) => {
+                              setSelectedFoodPreference(value);
+                              field.onChange(value);
+                            }}
+                            value={selectedFoodPreference}
+                            disabled={loadingFoodOptions || !selectedName}
+                          >
+                            <SelectTrigger>
+                              <SelectValue placeholder={loadingFoodOptions ? t('loading') : t('chooseFoodPreference')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {foodOptions.map((option, idx) => (
+                                <SelectItem key={`${option}-${idx}`} value={option}>
+                                  {option}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
                     name="confirmName"
                     render={({ field }) => (
                       <FormItem>
@@ -197,7 +280,7 @@ export default function RsvpPage() {
                     <Button
                       type="button"
                       onClick={() => handleSubmit("Accepted")}
-                      disabled={!selectedName || !namesMatch() || submitting}
+                      disabled={!shouldShowAcceptButton() || submitting}
                       className="w-full"
                     >
                       {t('accept')}
@@ -206,7 +289,7 @@ export default function RsvpPage() {
                       type="button"
                       variant="secondary"
                       onClick={() => handleSubmit("Declined")}
-                      disabled={!selectedName || !namesMatch() || submitting}
+                      disabled={!shouldShowDeclineButton() || submitting}
                       className="w-full"
                     >
                       {t('decline')}

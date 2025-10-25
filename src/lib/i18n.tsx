@@ -274,7 +274,39 @@ const translations: Translations = {
     it: 'Grazie. Stato:',
     ru: 'Спасибо. Статус:',
   },
-  
+
+  // Food Preferences
+  selectFoodPreference: {
+    en: 'Select Food Preference',
+    it: 'Seleziona preferenza culinaria',
+    ru: 'Выберите предпочтение в еде',
+  },
+  chooseFoodPreference: {
+    en: 'Choose your food preference',
+    it: 'Scegli la tua preferenza culinaria',
+    ru: 'Выберите ваше предпочтение в еде',
+  },
+  foodPreferenceRequired: {
+    en: 'Food preference required',
+    it: 'Preferenza culinaria richiesta',
+    ru: 'Необходимо указать предпочтение в еде',
+  },
+  pleaseSelectFoodPreference: {
+    en: 'Please select your food preference.',
+    it: 'Seleziona la tua preferenza culinaria.',
+    ru: 'Пожалуйста, выберите ваше предпочтение в еде.',
+  },
+  foodPreferenceError: {
+    en: 'Failed to load food preferences',
+    it: 'Impossibile caricare le preferenze culinarie',
+    ru: 'Не удалось загрузить предпочтения в еде',
+  },
+  foodPreferenceLoading: {
+    en: 'Loading food preferences...',
+    it: 'Caricamento preferenze culinarie...',
+    ru: 'Загрузка предпочтений в еде...',
+  },
+
   // Gallery
   galleryTitle: {
     en: 'Our Moments',
