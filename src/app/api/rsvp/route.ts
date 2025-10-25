@@ -36,14 +36,20 @@ export async function POST(req: Request) {
     const body = await req.json();
     const name = (body?.name || "").toString().trim();
     const status = (body?.status || "").toString().trim(); // Accepted | Declined
+    const foodPreference = (body?.foodPreference || "").toString().trim();
+    
     if (!name || !status) {
       return NextResponse.json({ error: "Missing name or status" }, { status: 400 });
+    }
+
+    if (!foodPreference) {
+      return NextResponse.json({ error: "Missing food preference" }, { status: 400 });
     }
 
     const sheets = await getSheetsClient();
 
     // Read rows to find the row index for the name
-    const range = `'${SHEET_NAME}'!A:G`;
+    const range = `'${SHEET_NAME}'!A:I`;
     const { data } = await sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range });
     const rows = data.values || [];
     if (rows.length <= 1) return NextResponse.json({ error: "No data" }, { status: 404 });
@@ -57,13 +63,14 @@ export async function POST(req: Request) {
     // Sheets API is 1-indexed. rowIndex is actual index in array; header is row 1.
     const sheetRowNumber = rowIndex + 1;
 
-    // Column G is RSVP status (7th column)
-    const updateRange = `'${SHEET_NAME}'!G${sheetRowNumber}:G${sheetRowNumber}`;
+    // Update both column G (RSVP status) and column I (food preference)
+    // Column G is the 7th column, Column I is the 9th column
+    const updateRange = `'${SHEET_NAME}'!G${sheetRowNumber}:I${sheetRowNumber}`;
     await sheets.spreadsheets.values.update({
       spreadsheetId: SPREADSHEET_ID,
       range: updateRange,
       valueInputOption: "USER_ENTERED",
-      requestBody: { values: [[status]] },
+      requestBody: { values: [[status, "", foodPreference]] }, // G, H (empty), I
     });
 
     return NextResponse.json({ ok: true });
