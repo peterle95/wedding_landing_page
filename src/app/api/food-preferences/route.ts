@@ -41,8 +41,8 @@ export async function GET() {
     }
 
     const sheets = await getSheetsClient();
-    // Read from Column I (9th column, 0-indexed as 8) to get food preference options
-    const range = `'${SHEET_NAME}'!I:I`;
+    // Read from Column E (5th column) to get food preference options
+    const range = `'${SHEET_NAME}'!E:E`;
 
     const { data } = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
@@ -52,7 +52,7 @@ export async function GET() {
     const rows = data.values || [];
     if (rows.length <= 1) return NextResponse.json({ foodOptions: [] });
 
-    // Extract unique food preference options from Column I (skip header row)
+    // Extract unique food preference options from Column E (skip header row)
     const foodOptions = rows.slice(1)
       .map((row) => (row[0] || "").toString().trim())
       .filter((option) => !!option)

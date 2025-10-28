@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -17,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
-import { PixelIcon } from "@/components/pixel-icon";
 import Link from "next/link";
 import {
   Select,
@@ -29,8 +28,11 @@ import {
 import { useLanguage } from "@/lib/i18n";
 
 const rsvpFormSchema = z.object({
-  confirmName: z.string().min(2, {
-    message: "Please type your name to confirm.",
+  name: z.string().min(2, {
+    message: "Please enter your name.",
+  }),
+  surname: z.string().min(2, {
+    message: "Please enter your surname.",
   }),
   foodPreference: z.string().optional(),
 });
@@ -41,9 +43,6 @@ export default function RsvpPage() {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
-  const [guests, setGuests] = useState<string[]>([]);
-  const [selectedName, setSelectedName] = useState("");
-  const [loadingGuests, setLoadingGuests] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [foodOptions, setFoodOptions] = useState<string[]>([]);
   const [loadingFoodOptions, setLoadingFoodOptions] = useState(true);
@@ -52,30 +51,11 @@ export default function RsvpPage() {
   const form = useForm<RsvpFormValues>({
     resolver: zodResolver(rsvpFormSchema),
     defaultValues: {
-      confirmName: "",
+      name: "",
+      surname: "",
       foodPreference: "",
     },
   });
-
-  useEffect(() => {
-    async function loadGuests() {
-      try {
-        const res = await fetch("/api/guests");
-        const data = await res.json();
-        if (res.ok) setGuests(data.guests || []);
-        else throw new Error(data.error || t('errorLoadingGuests'));
-      } catch (e: any) {
-        toast({ 
-          title: t('error'), 
-          description: e.message, 
-          variant: "destructive" 
-        });
-      } finally {
-        setLoadingGuests(false);
-      }
-    }
-    loadGuests();
-  }, [toast, t]);
 
   useEffect(() => {
     async function loadFoodOptions() {
@@ -97,27 +77,20 @@ export default function RsvpPage() {
     loadFoodOptions();
   }, [toast, t]);
 
-  // Subscribe to confirmName changes to re-render this component on each keystroke
-  const confirmName = useWatch({ control: form.control, name: "confirmName" });
-
-  function namesMatch() {
-    return (
-      selectedName.trim().toLowerCase() ===
-      (confirmName || "").trim().toLowerCase()
-    );
-  }
+  // no confirm name matching
 
   async function handleSubmit(status: "Accepted" | "Declined") {
-    if (!selectedName) {
+    const valid = await form.trigger();
+    const values = form.getValues();
+    if (!valid || !values.name || !values.surname) {
       toast({
-        title: t('pickYourName'),
+        title: t('error'),
         description: t('pleaseSelectName'),
         variant: "destructive"
       });
       return;
     }
 
-    // For accepted RSVPs, require food preference
     if (status === "Accepted" && !selectedFoodPreference) {
       toast({
         title: t('foodPreferenceRequired'),
@@ -127,19 +100,9 @@ export default function RsvpPage() {
       return;
     }
 
-    const valid = await form.trigger();
-    if (!valid || !namesMatch()) {
-      toast({
-        title: t('nameConfirmation'),
-        description: t('nameMustMatch'),
-        variant: "destructive"
-      });
-      return;
-    }
-
     try {
       setSubmitting(true);
-      const body: any = { name: selectedName, status };
+      const body: any = { name: values.name, surname: values.surname, status };
       if (status === "Accepted" && selectedFoodPreference) {
         body.foodPreference = selectedFoodPreference;
       }
@@ -169,11 +132,13 @@ export default function RsvpPage() {
 
   // Helper functions to determine when buttons should be shown
   function shouldShowAcceptButton() {
-    return selectedName && namesMatch() && selectedFoodPreference;
+    const v = form.getValues();
+    return !!v.name && !!v.surname && !!selectedFoodPreference;
   }
 
   function shouldShowDeclineButton() {
-    return selectedName && namesMatch();
+    const v = form.getValues();
+    return !!v.name && !!v.surname;
   }
 
   if (submitted) {
@@ -211,24 +176,33 @@ export default function RsvpPage() {
             <div>
               <Form {...form}>
                 <div className="space-y-6">
-                  <FormItem>
-                    <FormLabel className="text-lg">{t('selectName')}</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={setSelectedName} value={selectedName} disabled={loadingGuests}>
-                        <SelectTrigger>
-                          <SelectValue placeholder={loadingGuests ? t('loading') : t('chooseName')} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {guests.map((g, idx) => (
-                            <SelectItem key={`${g}-${idx}`} value={g}>
-                              {g}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">{t('selectName')}</FormLabel>
+                        <FormControl>
+                          <Input placeholder={t('startTyping')} {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="surname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">{t('surname') || 'Surname'}</FormLabel>
+                        <FormControl>
+                          <Input placeholder={t('startTyping')} {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
                   <FormField
                     control={form.control}
@@ -243,7 +217,7 @@ export default function RsvpPage() {
                               field.onChange(value);
                             }}
                             value={selectedFoodPreference}
-                            disabled={loadingFoodOptions || !selectedName}
+                            disabled={loadingFoodOptions}
                           >
                             <SelectTrigger>
                               <SelectValue placeholder={loadingFoodOptions ? t('loading') : t('chooseFoodPreference')} />
@@ -262,19 +236,7 @@ export default function RsvpPage() {
                     )}
                   />
 
-                  <FormField
-                    control={form.control}
-                    name="confirmName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-lg">{t('confirmName')}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={t('startTyping')} {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <Button

@@ -35,11 +35,12 @@ export async function POST(req: Request) {
 
     const body = await req.json();
     const name = (body?.name || "").toString().trim();
+    const surname = (body?.surname || "").toString().trim();
     const status = (body?.status || "").toString().trim(); // Accepted | Declined
     const foodPreference = (body?.foodPreference || "").toString().trim(); // Optional for declined
 
-    if (!name || !status) {
-      return NextResponse.json({ error: "Missing name or status" }, { status: 400 });
+    if (!name || !surname || !status) {
+      return NextResponse.json({ error: "Missing name, surname or status" }, { status: 400 });
     }
 
     // For accepted RSVPs, food preference is required
@@ -48,48 +49,24 @@ export async function POST(req: Request) {
     }
 
     const sheets = await getSheetsClient();
+    // Append a new row: [Name, Surname, RSVP status, Date Response, Food]
+    const appendRange = `'${SHEET_NAME}'!A:E`;
+    const now = new Date();
+    const values = [
+      name,
+      surname,
+      status,
+      now.toISOString(),
+      foodPreference || "",
+    ];
 
-    // Read rows to find the row index for the name
-    const range = `'${SHEET_NAME}'!A:I`;
-    const { data } = await sheets.spreadsheets.values.get({ spreadsheetId: SPREADSHEET_ID, range });
-    const rows = data.values || [];
-    if (rows.length <= 1) return NextResponse.json({ error: "No data" }, { status: 404 });
-
-    // Find row by name in column A, case-insensitive trim match
-    const rowIndex = rows.findIndex((r, idx) => idx > 0 && (r[0] || "").toString().trim().toLowerCase() === name.toLowerCase());
-    if (rowIndex === -1) {
-      return NextResponse.json({ error: "Guest not found" }, { status: 404 });
-    }
-
-    // Sheets API is 1-indexed. rowIndex is actual index in array; header is row 1.
-    const sheetRowNumber = rowIndex + 1;
-
-    // Column G is RSVP status (7th column), Column I is food preference (9th column)
-    const updates = [];
-
-    // Update RSVP status
-    updates.push({
-      range: `'${SHEET_NAME}'!G${sheetRowNumber}:G${sheetRowNumber}`,
-      values: [[status]]
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: SPREADSHEET_ID,
+      range: appendRange,
+      valueInputOption: "USER_ENTERED",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: { values: [values] },
     });
-
-    // Update food preference if provided
-    if (foodPreference) {
-      updates.push({
-        range: `'${SHEET_NAME}'!I${sheetRowNumber}:I${sheetRowNumber}`,
-        values: [[foodPreference]]
-      });
-    }
-
-    // Execute all updates
-    for (const update of updates) {
-      await sheets.spreadsheets.values.update({
-        spreadsheetId: SPREADSHEET_ID,
-        range: update.range,
-        valueInputOption: "USER_ENTERED",
-        requestBody: { values: update.values },
-      });
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {

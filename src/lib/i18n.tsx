@@ -179,6 +179,11 @@ const translations: Translations = {
     it: 'Seleziona il tuo nome',
     ru: 'Выберите ваше имя',
   },
+  surname: {
+    en: 'Surname',
+    it: 'Cognome',
+    ru: 'Фамилия',
+  },
   chooseName: {
     en: 'Start typing and select your name',
     it: 'Inizia a digitare e seleziona il tuo nome',
@@ -240,9 +245,9 @@ const translations: Translations = {
     ru: 'Выберите ваше имя',
   },
   pleaseSelectName: {
-    en: 'Please select your name from the list.',
-    it: 'Seleziona il tuo nome dalla lista.',
-    ru: 'Пожалуйста, выберите ваше имя из списка.',
+    en: 'Please enter your name and surname.',
+    it: 'Per favore inserisci il tuo nome e cognome.',
+    ru: 'Пожалуйста, введите ваше имя и фамилию.',
   },
   nameConfirmation: {
     en: 'Name confirmation',
