@@ -180,9 +180,9 @@ const translations: Translations = {
     ru: 'Выберите ваше имя',
   },
   chooseName: {
-    en: 'Choose your name',
-    it: 'Scegli il tuo nome',
-    ru: 'Выберите ваше имя',
+    en: 'Start typing and select your name',
+    it: 'Inizia a digitare e seleziona il tuo nome',
+    ru: 'Начните вводить и выберите ваше имя',
   },
   loading: {
     en: 'Loading...',
@@ -195,9 +195,9 @@ const translations: Translations = {
     ru: 'Введите ваше имя для подтверждения',
   },
   startTyping: {
-    en: 'Start typing...',
-    it: 'Inizia a scrivere...',
-    ru: 'Начните вводить...',
+    en: 'Type your name here that matches the name on your invitation',
+    it: 'Scrivi il tuo nome qui che corrisponde al nome sulla tua invitazione',
+    ru: 'Введите ваше имя здесь, которое соответствует имени на вашем приглашении',
   },
   accept: {
     en: 'Accept',
