@@ -175,9 +175,9 @@ const translations: Translations = {
     ru: 'Пожалуйста, сообщите нам, если вы сможете присутствовать до 1 мая 2026 года.',
   },
   selectName: {
-    en: 'Select Your Name',
-    it: 'Seleziona il tuo nome',
-    ru: 'Выберите ваше имя',
+    en: 'Name',
+    it: 'Nome',
+    ru: 'Имя',
   },
   surname: {
     en: 'Surname',
@@ -185,7 +185,7 @@ const translations: Translations = {
     ru: 'Фамилия',
   },
   chooseName: {
-    en: 'Start typing and select your name',
+    en: 'Type your name',
     it: 'Inizia a digitare e seleziona il tuo nome',
     ru: 'Начните вводить и выберите ваше имя',
   },
@@ -195,14 +195,14 @@ const translations: Translations = {
     ru: 'Загрузка...',
   },
   confirmName: {
-    en: 'Type Your Name To Confirm',
+    en: 'Type your name to confirm',
     it: 'Digita il tuo nome per confermare',
     ru: 'Введите ваше имя для подтверждения',
   },
   startTyping: {
-    en: 'Type your name here that matches the name on your invitation',
-    it: 'Scrivi il tuo nome qui che corrisponde al nome sulla tua invitazione',
-    ru: 'Введите ваше имя здесь, которое соответствует имени на вашем приглашении',
+    en: 'Type your name here',
+    it: 'Scrivi il tuo nome qui',
+    ru: 'Введите ваше имя здесь',
   },
   accept: {
     en: 'Accept',
@@ -239,15 +239,10 @@ const translations: Translations = {
     it: 'Impossibile caricare gli ospiti',
     ru: 'Не удалось загрузить гостей',
   },
-  pickYourName: {
-    en: 'Pick your name',
-    it: 'Seleziona il tuo nome',
-    ru: 'Выберите ваше имя',
-  },
   pleaseSelectName: {
-    en: 'Please enter your name and surname.',
-    it: 'Per favore inserisci il tuo nome e cognome.',
-    ru: 'Пожалуйста, введите ваше имя и фамилию.',
+    en: 'Please type your name.',
+    it: 'Per favore inserisci il tuo nome.',
+    ru: 'Пожалуйста, введите ваше имя.',
   },
   nameConfirmation: {
     en: 'Name confirmation',
@@ -277,9 +272,9 @@ const translations: Translations = {
 
   // Food Preferences
   selectFoodPreference: {
-    en: 'Select Food Preference',
-    it: 'Seleziona preferenza culinaria',
-    ru: 'Выберите предпочтение в еде',
+    en: 'Food preference',
+    it: 'Preferenza culinaria',
+    ru: 'Предпочтение в еде',
   },
   chooseFoodPreference: {
     en: 'Choose your food preference',

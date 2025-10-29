@@ -50,7 +50,8 @@ export async function POST(req: Request) {
 
     const sheets = await getSheetsClient();
     // Append a new row: [Name, Surname, RSVP status, Date Response, Food]
-    const appendRange = `'${SHEET_NAME}'!A:E`;
+    const targetSheet = status.toLowerCase() === "accepted" ? "LandingPage" : SHEET_NAME;
+    const appendRange = `'${targetSheet}'!A:E`;
     const now = new Date();
     const values = [
       name,
