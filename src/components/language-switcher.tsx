@@ -26,6 +26,9 @@ export function LanguageSwitcher() {
         <DropdownMenuItem onClick={() => setLanguage('ru')} disabled={language === 'ru'}>
           Русский
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage('de')} disabled={language === 'de'}>
+          Deutsch
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
