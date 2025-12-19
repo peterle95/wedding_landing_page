@@ -4,16 +4,17 @@ export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 
 const OPTIONS = [
-  { key: "vegan", en: "Vegan", it: "Vegano", de: "Vegan" },
-  { key: "vegetarian", en: "Vegetarian", it: "Vegetariano", de: "Vegetarisch" },
-  { key: "no_restrictions", en: "No Restrictions", it: "Nessuna restrizione", de: "Keine Einschränkungen" },
-  { key: "other", en: "Other", it: "Altro", de: "Sonstiges" },
+  { key: "vegan", en: "Vegan", it: "Vegano", de: "Vegan", ru: "Веганское" },
+  { key: "vegetarian", en: "Vegetarian", it: "Vegetariano", de: "Vegetarisch", ru: "Вегетарианское" },
+  { key: "no_restrictions", en: "No Restrictions", it: "Nessuna restrizione", de: "Keine Einschränkungen", ru: "Без ограничений" },
+  { key: "other", en: "Other", it: "Altro", de: "Sonstiges", ru: "Другое" },
 ];
 
 const translations = {
   en: OPTIONS.map((o) => o.en),
   it: OPTIONS.map((o) => o.it),
   de: OPTIONS.map((o) => o.de),
+  ru: OPTIONS.map((o) => o.ru),
 } as const;
 
 export async function GET(request: Request) {

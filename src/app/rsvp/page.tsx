@@ -40,7 +40,7 @@ const rsvpFormSchema = z.object({
 type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
 
 export default function RsvpPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
@@ -60,7 +60,8 @@ export default function RsvpPage() {
   useEffect(() => {
     async function loadFoodOptions() {
       try {
-        const res = await fetch("/api/food-preferences");
+        setLoadingFoodOptions(true);
+        const res = await fetch(`/api/food-preferences?lang=${language}`);
         const data = await res.json();
         if (res.ok) setFoodOptions(data.foodOptions || []);
         else throw new Error(data.error || t('foodPreferenceError'));
@@ -75,7 +76,7 @@ export default function RsvpPage() {
       }
     }
     loadFoodOptions();
-  }, [toast, t]);
+  }, [language, toast, t]);
 
   // no confirm name matching
 
@@ -236,7 +237,7 @@ export default function RsvpPage() {
                     )}
                   />
 
-                  
+
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <Button
