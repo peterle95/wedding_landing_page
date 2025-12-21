@@ -96,7 +96,7 @@ describe('Utility Functions', () => {
       const date = new Date(weddingDate)
       expect(date.getFullYear()).toBe(2026)
       expect(date.getMonth()).toBe(5) // June (0-indexed)
-      expect(date.getDate()).toBe(6)
+      expect(date.getDate()).toBe(27)
     })
   })
 })
