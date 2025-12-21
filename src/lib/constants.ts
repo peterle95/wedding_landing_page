@@ -1,4 +1,6 @@
-export const weddingDate = "2026-06-27T17:00:00";
+// Wedding time in Central European Summer Time (CEST = UTC+2)
+// June 27 falls during daylight saving time in Europe
+export const weddingDate = "2026-06-27T17:00:00+02:00";
 
 export const photos = [
   { id: 1, src: "/DSC04414.jpg", alt: "Couple smiling", hint: "couple smiling" },
