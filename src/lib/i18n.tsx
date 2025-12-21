@@ -42,7 +42,7 @@ const translations: Translations = {
     ru: 'Подтверждение',
     de: 'RSVP',
   },
-  
+
   // Home Page
   weddingTitle: {
     en: 'Liliia & Peter',
@@ -56,7 +56,7 @@ const translations: Translations = {
     ru: 'С радостью связывают свои судьбы и с нетерпением ждут возможности отпраздновать с вами!',
     de: 'Geben sich voller Freude das Jawort und können es kaum erwarten, mit dir zu feiern!',
   },
-  
+
   // Event Details
   eventDetails: {
     en: 'Event Details',
@@ -177,7 +177,7 @@ const translations: Translations = {
     ru: 'Загрузка обратного отсчета...',
     de: 'Loading countdown...',
   },
-  
+
   // RSVP
   rsvpTitle: {
     en: 'RSVP',
@@ -419,7 +419,63 @@ const translations: Translations = {
     ru: 'Открыть в Google Maps',
     de: 'In Google Maps öffnen',
   },
-  
+
+  // FAQs
+  faqsTitle: {
+    en: 'FAQs',
+    it: 'FAQs',
+    ru: 'FAQs',
+    de: 'FAQs',
+  },
+  faqQuestion1: {
+    en: 'What time should I arrive?',
+    it: 'A che ora devo arrivare?',
+    ru: 'Во сколько мне нужно приехать?',
+    de: 'Um wie viel Uhr sollte ich ankommen?',
+  },
+  faqAnswer1: {
+    en: 'Please arrive at least 30 minutes before the ceremony starts at 5:00 PM to find your seat and settle in.',
+    it: 'Si prega di arrivare almeno 30 minuti prima dell\'inizio della cerimonia alle 17:00 per trovare il proprio posto e sistemarsi.',
+    ru: 'Пожалуйста, приезжайте как минимум за 30 минут до начала церемонии в 17:00, чтобы найти свое место и устроиться.',
+    de: 'Bitte komme mindestens 30 Minuten vor Beginn der Zeremonie um 17:00 Uhr, um deinen Platz zu finden und dich einzurichten.',
+  },
+  faqQuestion2: {
+    en: 'Is there parking available?',
+    it: 'C\'è parcheggio disponibile?',
+    ru: 'Есть ли парковка?',
+    de: 'Gibt es Parkmöglichkeiten?',
+  },
+  faqAnswer2: {
+    en: 'Yes, there is free parking available near the venue. Additional street parking is also available in the village.',
+    it: 'Sì, c\'è parcheggio gratuito disponibile vicino alla location. Ulteriore parcheggio su strada è disponibile nel villaggio.',
+    ru: 'Да, рядом с местом проведения есть бесплатная парковка. Дополнительная уличная парковка также доступна в деревне.',
+    de: 'Ja, es gibt kostenlose Parkplätze in der Nähe des Veranstaltungsortes. Zusätzliche Straßenparkplätze sind auch im Dorf verfügbar.',
+  },
+  faqQuestion3: {
+    en: 'Can I bring a plus one?',
+    it: 'Posso portare un accompagnatore?',
+    ru: 'Могу ли я взять с собой гостя?',
+    de: 'Kann ich eine Begleitung mitbringen?',
+  },
+  faqAnswer3: {
+    en: 'Due to venue capacity, we can only accommodate guests named on the invitation. Please contact us if you have any questions.',
+    it: 'A causa della capacità della location, possiamo ospitare solo gli invitati nominati sull\'invito. Contattateci per qualsiasi domanda.',
+    ru: 'Из-за ограниченной вместимости площадки мы можем принять только гостей, указанных в приглашении. Пожалуйста, свяжитесь с нами, если у вас есть вопросы.',
+    de: 'Aufgrund der Kapazität des Veranstaltungsortes können wir nur Gäste aufnehmen, die auf der Einladung genannt sind. Bitte kontaktiere uns bei Fragen.',
+  },
+  faqQuestion4: {
+    en: 'What if I have dietary restrictions?',
+    it: 'E se ho restrizioni alimentari?',
+    ru: 'Что делать, если у меня есть диетические ограничения?',
+    de: 'Was ist, wenn ich besondere Ernährungsbedürfnisse habe?',
+  },
+  faqAnswer4: {
+    en: 'Please let us know your dietary preferences when you RSVP. We will do our best to accommodate all dietary needs.',
+    it: 'Fateci sapere le vostre preferenze alimentari quando confermate la partecipazione. Faremo del nostro meglio per soddisfare tutte le esigenze alimentari.',
+    ru: 'Пожалуйста, сообщите нам о ваших предпочтениях в еде при подтверждении участия. Мы сделаем все возможное, чтобы учесть все диетические потребности.',
+    de: 'Bitte teile uns deine Ernährungspräferenzen bei der RSVP mit. Wir werden unser Bestes tun, um alle Ernährungsbedürfnisse zu berücksichtigen.',
+  },
+
   // Common
 };
 

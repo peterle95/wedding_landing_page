@@ -20,13 +20,13 @@ export default function Home() {
           {t('weddingSubtitle')}
         </p>
         <div className="relative inline-block">
-           <Image 
-              src="/DSC05292.jpg"
-              alt="Liliia and Peter" 
-              width={800} 
-              height={400} 
-              className="rounded-lg object-cover"
-            />
+          <Image
+            src="/DSC05292.jpg"
+            alt="Liliia and Peter"
+            width={800}
+            height={400}
+            className="rounded-lg object-cover"
+          />
         </div>
       </header>
       {/* AIzaSyBpQVrm_l_HxkIEir_HMs29GZLToi1PXGk google maps api test*/}
@@ -55,7 +55,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-lg">{t('dressCode')}</h3>
                 <p className="text-muted-foreground">{t('dressCodeDescription')}</p>
-              </div>  
+              </div>
             </li>
           </ul>
         </PixelatedCard>
@@ -63,7 +63,7 @@ export default function Home() {
         <PixelatedCard title={t('seeYouThere')}>
           <div className="space-y-4 text-center">
             <p className="text-muted-foreground">
-            {t('giftMessage')}            </p>
+              {t('giftMessage')}            </p>
             {/* PayPal Donate Button */}
             <div className="mb-6 flex justify-center">
               <form action="https://www.paypal.com/donate" method="post" target="_top" className="inline-block">
@@ -73,11 +73,34 @@ export default function Home() {
               </form>
             </div>
             <p className="font-semibold text-lg">
-            {t('rsvpByDate')}
+              {t('rsvpByDate')}
             </p>
             <Button asChild size="lg" className="w-full">
               <Link href="/rsvp">{t('rsvpButton')}</Link>
             </Button>
+          </div>
+        </PixelatedCard>
+      </section>
+
+      <section className="my-16 md:my-24">
+        <PixelatedCard title={t('faqsTitle')}>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-lg">{t('faqQuestion1')}</h3>
+              <p className="text-muted-foreground">{t('faqAnswer1')}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">{t('faqQuestion2')}</h3>
+              <p className="text-muted-foreground">{t('faqAnswer2')}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">{t('faqQuestion3')}</h3>
+              <p className="text-muted-foreground">{t('faqAnswer3')}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">{t('faqQuestion4')}</h3>
+              <p className="text-muted-foreground">{t('faqAnswer4')}</p>
+            </div>
           </div>
         </PixelatedCard>
       </section>
