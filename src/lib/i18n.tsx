@@ -355,6 +355,30 @@ const translations: Translations = {
     ru: 'Загрузка предпочтений в еде...',
     de: 'Laden der Mahlzeitenpräferenzen...',
   },
+  guestCount: {
+    en: 'Number of Guests',
+    it: 'Numero di Ospiti',
+    ru: 'Количество гостей',
+    de: 'Anzahl der Gäste',
+  },
+  guestCountPlaceholder: {
+    en: 'How many people are you bringing?',
+    it: 'Quante persone stai portando?',
+    ru: 'Сколько человек вы приводите?',
+    de: 'Wie viele Personen bringst du mit?',
+  },
+  email: {
+    en: 'Email',
+    it: 'Email',
+    ru: 'Электронная почта',
+    de: 'E-Mail',
+  },
+  emailPlaceholder: {
+    en: 'Enter your email address',
+    it: 'Inserisci il tuo indirizzo email',
+    ru: 'Введите ваш адрес электронной почты',
+    de: 'Gib deine E-Mail-Adresse ein',
+  },
 
   // Gallery
   galleryTitle: {

@@ -38,6 +38,8 @@ export async function POST(req: Request) {
     const surname = (body?.surname || "").toString().trim();
     const status = (body?.status || "").toString().trim(); // Accepted | Declined
     const foodPreference = (body?.foodPreference || "").toString().trim(); // Optional for declined
+    const guestCount = (body?.guestCount || 1).toString().trim(); // Number of guests
+    const email = (body?.email || "").toString().trim(); // Guest email
 
     if (!name || !surname || !status) {
       return NextResponse.json({ error: "Missing name, surname or status" }, { status: 400 });
@@ -49,9 +51,9 @@ export async function POST(req: Request) {
     }
 
     const sheets = await getSheetsClient();
-    // Append a new row: [Name, Surname, RSVP status, Date Response, Food]
+    // Append a new row: [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email]
     const targetSheet = status.toLowerCase() === "accepted" ? "LandingPage" : SHEET_NAME;
-    const appendRange = `'${targetSheet}'!A:E`;
+    const appendRange = `'${targetSheet}'!A:G`;
     const now = new Date();
     const values = [
       name,
@@ -59,6 +61,8 @@ export async function POST(req: Request) {
       status,
       now.toISOString(),
       foodPreference || "",
+      guestCount,
+      email,
     ];
 
     await sheets.spreadsheets.values.append({

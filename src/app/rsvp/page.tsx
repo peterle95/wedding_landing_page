@@ -35,6 +35,12 @@ const rsvpFormSchema = z.object({
     message: "Please enter your surname.",
   }),
   foodPreference: z.string().optional(),
+  guestCount: z.coerce.number().min(1, {
+    message: "Please enter the number of guests.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
 });
 
 type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
@@ -54,6 +60,8 @@ export default function RsvpPage() {
       name: "",
       surname: "",
       foodPreference: "",
+      guestCount: 1,
+      email: "",
     },
   });
 
@@ -103,7 +111,13 @@ export default function RsvpPage() {
 
     try {
       setSubmitting(true);
-      const body: any = { name: values.name, surname: values.surname, status };
+      const body: any = {
+        name: values.name,
+        surname: values.surname,
+        status,
+        guestCount: values.guestCount,
+        email: values.email,
+      };
       if (status === "Accepted" && selectedFoodPreference) {
         body.foodPreference = selectedFoodPreference;
       }
@@ -134,12 +148,12 @@ export default function RsvpPage() {
   // Helper functions to determine when buttons should be shown
   function shouldShowAcceptButton() {
     const v = form.getValues();
-    return !!v.name && !!v.surname && !!selectedFoodPreference;
+    return !!v.name && !!v.surname && !!selectedFoodPreference && v.guestCount >= 1 && !!v.email;
   }
 
   function shouldShowDeclineButton() {
     const v = form.getValues();
-    return !!v.name && !!v.surname;
+    return !!v.name && !!v.surname && v.guestCount >= 1 && !!v.email;
   }
 
   if (submitted) {
@@ -231,6 +245,45 @@ export default function RsvpPage() {
                               ))}
                             </SelectContent>
                           </Select>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="guestCount"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">{t('guestCount')}</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="number"
+                            min={1}
+                            placeholder={t('guestCountPlaceholder')}
+                            {...field}
+                            value={field.value ?? ""}
+                            onChange={(e) => field.onChange(e.target.value === "" ? "" : Number(e.target.value))}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">{t('email')}</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="email"
+                            placeholder={t('emailPlaceholder')}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
