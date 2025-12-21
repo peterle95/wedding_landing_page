@@ -51,9 +51,8 @@ export async function POST(req: Request) {
     }
 
     const sheets = await getSheetsClient();
-    // Append a new row: [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email]
+    // Insert a new row at position 2 (after header): [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email]
     const targetSheet = status.toLowerCase() === "accepted" ? "LandingPage" : SHEET_NAME;
-    const appendRange = `'${targetSheet}'!A:G`;
     const now = new Date();
     const values = [
       name,
@@ -65,11 +64,46 @@ export async function POST(req: Request) {
       email,
     ];
 
-    await sheets.spreadsheets.values.append({
+    // First, get the sheet ID for the target sheet
+    const spreadsheet = await sheets.spreadsheets.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: appendRange,
+    });
+
+    const sheet = spreadsheet.data.sheets?.find(
+      (s) => s.properties?.title === targetSheet
+    );
+
+    if (!sheet?.properties?.sheetId && sheet?.properties?.sheetId !== 0) {
+      return NextResponse.json({ error: `Sheet "${targetSheet}" not found` }, { status: 404 });
+    }
+
+    const sheetId = sheet.properties.sheetId;
+
+    // Insert a new row at index 1 (row 2, after the header)
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId: SPREADSHEET_ID,
+      requestBody: {
+        requests: [
+          {
+            insertDimension: {
+              range: {
+                sheetId: sheetId,
+                dimension: "ROWS",
+                startIndex: 1, // 0-indexed, so row 2
+                endIndex: 2,
+              },
+              inheritFromBefore: false,
+            },
+          },
+        ],
+      },
+    });
+
+    // Now update the newly inserted row with our values
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `'${targetSheet}'!A2:G2`,
       valueInputOption: "USER_ENTERED",
-      insertDataOption: "INSERT_ROWS",
       requestBody: { values: [values] },
     });
 
