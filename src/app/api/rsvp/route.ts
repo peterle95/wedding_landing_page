@@ -27,6 +27,36 @@ async function getSheetsClient() {
   return google.sheets({ version: "v4", auth });
 }
 
+// Food preference translations - maps localized values to English
+const FOOD_OPTIONS = [
+  { key: "vegan", en: "Vegan", it: "Vegano", de: "Vegan", ru: "Веганское" },
+  { key: "vegetarian", en: "Vegetarian", it: "Vegetariano", de: "Vegetarisch", ru: "Вегетарианское" },
+  { key: "no_restrictions", en: "No Restrictions", it: "Nessuna restrizione", de: "Keine Einschränkungen", ru: "Без ограничений" },
+  { key: "other", en: "Other", it: "Altro", de: "Sonstiges", ru: "Другое" },
+];
+
+function translateFoodPreferenceToEnglish(localizedValue: string): string {
+  if (!localizedValue) return "";
+
+  // Check if it's already in English
+  const englishOption = FOOD_OPTIONS.find((o) => o.en.toLowerCase() === localizedValue.toLowerCase());
+  if (englishOption) return englishOption.en;
+
+  // Search through all language variants
+  for (const option of FOOD_OPTIONS) {
+    if (
+      option.it.toLowerCase() === localizedValue.toLowerCase() ||
+      option.de.toLowerCase() === localizedValue.toLowerCase() ||
+      option.ru.toLowerCase() === localizedValue.toLowerCase()
+    ) {
+      return option.en;
+    }
+  }
+
+  // If no match found, return the original value
+  return localizedValue;
+}
+
 export async function POST(req: Request) {
   try {
     if (!SPREADSHEET_ID || !SHEET_NAME) {
@@ -37,21 +67,23 @@ export async function POST(req: Request) {
     const name = (body?.name || "").toString().trim();
     const surname = (body?.surname || "").toString().trim();
     const status = (body?.status || "").toString().trim(); // Accepted | Declined
-    const foodPreference = (body?.foodPreference || "").toString().trim(); // Optional for declined
+    const foodPreferenceRaw = (body?.foodPreference || "").toString().trim(); // Optional for declined
+    const foodPreference = translateFoodPreferenceToEnglish(foodPreferenceRaw); // Translate to English
+    const guestCount = (body?.guestCount || 1).toString().trim(); // Number of guests
+    const email = (body?.email || "").toString().trim(); // Guest email
 
     if (!name || !surname || !status) {
       return NextResponse.json({ error: "Missing name, surname or status" }, { status: 400 });
     }
 
     // For accepted RSVPs, food preference is required
-    if (status.toLowerCase() === "accepted" && !foodPreference) {
+    if (status.toLowerCase() === "accepted" && !foodPreferenceRaw) {
       return NextResponse.json({ error: "Food preference required for accepted RSVP" }, { status: 400 });
     }
 
     const sheets = await getSheetsClient();
-    // Append a new row: [Name, Surname, RSVP status, Date Response, Food]
+    // Insert a new row at position 2 (after header): [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email]
     const targetSheet = status.toLowerCase() === "accepted" ? "LandingPage" : SHEET_NAME;
-    const appendRange = `'${targetSheet}'!A:E`;
     const now = new Date();
     const values = [
       name,
@@ -59,13 +91,50 @@ export async function POST(req: Request) {
       status,
       now.toISOString(),
       foodPreference || "",
+      guestCount,
+      email,
     ];
 
-    await sheets.spreadsheets.values.append({
+    // First, get the sheet ID for the target sheet
+    const spreadsheet = await sheets.spreadsheets.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: appendRange,
+    });
+
+    const sheet = spreadsheet.data.sheets?.find(
+      (s) => s.properties?.title === targetSheet
+    );
+
+    if (!sheet?.properties?.sheetId && sheet?.properties?.sheetId !== 0) {
+      return NextResponse.json({ error: `Sheet "${targetSheet}" not found` }, { status: 404 });
+    }
+
+    const sheetId = sheet.properties.sheetId;
+
+    // Insert a new row at index 1 (row 2, after the header)
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId: SPREADSHEET_ID,
+      requestBody: {
+        requests: [
+          {
+            insertDimension: {
+              range: {
+                sheetId: sheetId,
+                dimension: "ROWS",
+                startIndex: 1, // 0-indexed, so row 2
+                endIndex: 2,
+              },
+              inheritFromBefore: false,
+            },
+          },
+        ],
+      },
+    });
+
+    // Now update the newly inserted row with our values
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `'${targetSheet}'!A2:G2`,
       valueInputOption: "USER_ENTERED",
-      insertDataOption: "INSERT_ROWS",
       requestBody: { values: [values] },
     });
 

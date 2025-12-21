@@ -42,7 +42,7 @@ interface FoodPreferenceFormProps {
 }
 
 export function FoodPreferenceForm({ guests, onSubmit }: FoodPreferenceFormProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   const [foodOptions, setFoodOptions] = useState<string[]>([]);
   const [selectedName, setSelectedName] = useState("");
@@ -60,7 +60,8 @@ export function FoodPreferenceForm({ guests, onSubmit }: FoodPreferenceFormProps
   useEffect(() => {
     async function loadFoodOptions() {
       try {
-        const res = await fetch("/api/food-preferences");
+        setLoadingFoodOptions(true);
+        const res = await fetch(`/api/food-preferences?lang=${language}`);
         const data = await res.json();
         if (res.ok) setFoodOptions(data.foodOptions || []);
         else throw new Error(data.error || t('foodPreferenceError'));
@@ -75,7 +76,7 @@ export function FoodPreferenceForm({ guests, onSubmit }: FoodPreferenceFormProps
       }
     }
     loadFoodOptions();
-  }, [toast, t]);
+  }, [language, toast, t]);
 
   async function handleSubmit(values: FoodPreferenceFormValues) {
     try {
