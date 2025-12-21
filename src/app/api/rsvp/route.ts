@@ -27,6 +27,36 @@ async function getSheetsClient() {
   return google.sheets({ version: "v4", auth });
 }
 
+// Food preference translations - maps localized values to English
+const FOOD_OPTIONS = [
+  { key: "vegan", en: "Vegan", it: "Vegano", de: "Vegan", ru: "Веганское" },
+  { key: "vegetarian", en: "Vegetarian", it: "Vegetariano", de: "Vegetarisch", ru: "Вегетарианское" },
+  { key: "no_restrictions", en: "No Restrictions", it: "Nessuna restrizione", de: "Keine Einschränkungen", ru: "Без ограничений" },
+  { key: "other", en: "Other", it: "Altro", de: "Sonstiges", ru: "Другое" },
+];
+
+function translateFoodPreferenceToEnglish(localizedValue: string): string {
+  if (!localizedValue) return "";
+
+  // Check if it's already in English
+  const englishOption = FOOD_OPTIONS.find((o) => o.en.toLowerCase() === localizedValue.toLowerCase());
+  if (englishOption) return englishOption.en;
+
+  // Search through all language variants
+  for (const option of FOOD_OPTIONS) {
+    if (
+      option.it.toLowerCase() === localizedValue.toLowerCase() ||
+      option.de.toLowerCase() === localizedValue.toLowerCase() ||
+      option.ru.toLowerCase() === localizedValue.toLowerCase()
+    ) {
+      return option.en;
+    }
+  }
+
+  // If no match found, return the original value
+  return localizedValue;
+}
+
 export async function POST(req: Request) {
   try {
     if (!SPREADSHEET_ID || !SHEET_NAME) {
@@ -37,7 +67,8 @@ export async function POST(req: Request) {
     const name = (body?.name || "").toString().trim();
     const surname = (body?.surname || "").toString().trim();
     const status = (body?.status || "").toString().trim(); // Accepted | Declined
-    const foodPreference = (body?.foodPreference || "").toString().trim(); // Optional for declined
+    const foodPreferenceRaw = (body?.foodPreference || "").toString().trim(); // Optional for declined
+    const foodPreference = translateFoodPreferenceToEnglish(foodPreferenceRaw); // Translate to English
     const guestCount = (body?.guestCount || 1).toString().trim(); // Number of guests
     const email = (body?.email || "").toString().trim(); // Guest email
 
@@ -46,7 +77,7 @@ export async function POST(req: Request) {
     }
 
     // For accepted RSVPs, food preference is required
-    if (status.toLowerCase() === "accepted" && !foodPreference) {
+    if (status.toLowerCase() === "accepted" && !foodPreferenceRaw) {
       return NextResponse.json({ error: "Food preference required for accepted RSVP" }, { status: 400 });
     }
 
