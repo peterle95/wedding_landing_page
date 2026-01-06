@@ -125,6 +125,36 @@ const translations: Translations = {
     ru: 'Ваше присутствие будет для нас лучшим подарком, но если вы хотите почтить нас подарком, мы будем искренне благодарны за вклад в наш медовый месяц.',
     de: 'Deine Anwesenheit wäre das größte Geschenk, aber wenn du uns mit einem Geschenk ehren möchtest, würden wir uns sehr über einen Beitrag zu unserem Hochzeitsreisegeld freuen.',
   },
+  bankTransferTitle: {
+    en: 'Bank Transfer',
+    it: 'Bonifico Bancario',
+    ru: 'Банковский перевод',
+    de: 'Banküberweisung',
+  },
+  paypalTitle: {
+    en: 'PayPal',
+    it: 'PayPal',
+    ru: 'PayPal',
+    de: 'PayPal',
+  },
+  accountName: {
+    en: 'Account Name',
+    it: 'Intestatario',
+    ru: 'Имя счёта',
+    de: 'Kontoinhaber',
+  },
+  ibanLabel: {
+    en: 'IBAN',
+    it: 'IBAN',
+    ru: 'IBAN',
+    de: 'IBAN',
+  },
+  orText: {
+    en: 'or',
+    it: 'oppure',
+    ru: 'или',
+    de: 'oder',
+  },
 
   rsvpByDate: {
     en: 'Kindly RSVP by March 1st, 2026.',
@@ -458,10 +488,10 @@ const translations: Translations = {
     de: 'Kann ich eine Begleitung mitbringen?',
   },
   faqAnswer3: {
-    en: 'Due to venue capacity, we can only accommodate guests named on the invitation. Please contact us if you have any questions.',
-    it: 'A causa della capacità della location, possiamo ospitare solo gli invitati nominati sull\'invito. Contattateci per qualsiasi domanda.',
-    ru: 'Из-за ограниченной вместимости площадки мы можем принять только гостей, указанных в приглашении. Пожалуйста, свяжитесь с нами, если у вас есть вопросы.',
-    de: 'Aufgrund der Kapazität des Veranstaltungsortes können wir nur Gäste aufnehmen, die auf der Einladung genannt sind. Bitte kontaktiere uns bei Fragen.',
+    en: 'If you would like to bring a plus one, please contact us directly.',
+    it: 'Se desiderate venire accompagnati da una persona aggiuntiva, vi preghiamo di contattarci direttamente.',
+    ru: 'Если вы хотите приехать с дополнительным гостем, пожалуйста, свяжитесь с нами напрямую.',
+    de: 'Wenn du eine Begleitung mitbringen möchtest, kontaktiere uns bitte direkt.',
   },
   faqQuestion4: {
     en: 'What if I have dietary restrictions?',
@@ -474,6 +504,42 @@ const translations: Translations = {
     it: 'Fateci sapere le vostre preferenze alimentari quando confermate la partecipazione. Faremo del nostro meglio per soddisfare tutte le esigenze alimentari.',
     ru: 'Пожалуйста, сообщите нам о ваших предпочтениях в еде при подтверждении участия. Мы сделаем все возможное, чтобы учесть все диетические потребности.',
     de: 'Bitte teile uns deine Ernährungspräferenzen bei der RSVP mit. Wir werden unser Bestes tun, um alle Ernährungsbedürfnisse zu berücksichtigen.',
+  },
+  faqQuestion5: {
+    en: 'Where can I stay overnight?',
+    it: 'Dove posso pernottare?',
+    ru: 'Где я могу остановиться?',
+    de: 'Wo kann ich übernachten?',
+  },
+  faqAnswer5: {
+    en: 'We recommend that you stay in Genoa. On the wedding day, we will organize transportation from the city to the castle and back.',
+    it: 'Consigliamo di restare a Genova. Il giorno del matrimonio, organizzeremo il trasporto dalla città al castello e viceversa.',
+    ru: 'Рекомендуем остановиться в Генеа. На день свадьбы мы организуем транспортировку от города до замка и обратно.',
+    de: 'Wir empfehlen, dass du in Genoa übernachtest. Am Tag der Hochzeit werden wir das Transport von der Stadt zum Schloss und zurück organisieren.',
+  },
+  faqQuestion6: {
+    en: 'What is the dress code?',
+    it: 'Qual è il dresscode?',
+    ru: 'Какой код одежды?',
+    de: 'Was ist der Dresscode?',
+  },
+  faqAnswer6: {
+    en: 'The dresscode is modern. You can wear a suit or a dress. The best dress will win a price.',
+    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito. Il migliore abito vince un premio.',
+    ru: 'Код одежды современный. Вы можете носить костюм или платье. Лучшее платье выиграет приз.',
+    de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen. Das beste Kleid wird einen Preis bekommen.',
+  },
+  faqQuestion7: {
+    en: 'What is the dress code?',
+    it: 'Qual è il dresscode?',
+    ru: 'Какой код одежды?',
+    de: 'Was ist der Dresscode?',
+  },
+  faqAnswer7: {
+    en: 'The dresscode is modern. You can wear a suit or a dress.',
+    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito.',
+    ru: 'Код одежды современный. Вы можете носить костюм или платье.',
+    de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen.',
   },
 
   // Common
