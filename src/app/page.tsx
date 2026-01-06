@@ -23,22 +23,21 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  useEffect(() => {
+    useEffect(() => {
     const scrollTarget = searchParams.get('scroll');
     if (scrollTarget === 'faqs') {
-      // Remove query param from URL
       router.replace('/', { scroll: false });
 
-      // Wait 500ms then scroll to FAQs
       const element = document.getElementById('faqs');
       if (element) {
-        setTimeout(() => {
+       const timeoutId = setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 500);
+       return () => clearTimeout(timeoutId);
       }
     }
-  }, [searchParams, router]);
-
+  }, [searchParams, router]); 
+  
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center space-y-4">
@@ -100,7 +99,7 @@ function HomeContent() {
               {/* Bank Transfer Section */}
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl p-5 border border-purple-200/50 dark:border-purple-800/30 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600 dark:text-purple-400">
+                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600 dark:text-purple-400">
                     <rect width="20" height="14" x="2" y="5" rx="2" />
                     <line x1="2" x2="22" y1="10" y2="10" />
                   </svg>
