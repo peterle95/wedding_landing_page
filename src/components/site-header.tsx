@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import * as React from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -22,6 +23,19 @@ const navItems = [
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false)
   const { t } = useLanguage()
+  const pathname = usePathname()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, callback?: () => void) => {
+    if (callback) callback()
+
+    if (href === "/?scroll=faqs" && pathname === "/") {
+      e.preventDefault()
+      const element = document.getElementById("faqs")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,6 +51,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+              onClick={(e) => handleNavClick(e, item.href)}
             >
               {t(item.key)}
             </Link>
@@ -75,7 +90,7 @@ export function SiteHeader() {
                       key={item.href}
                       href={item.href}
                       className="text-lg font-medium hover:text-primary"
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href, () => setOpen(false))}
                     >
                       {t(item.key)}
                     </Link>
