@@ -42,7 +42,7 @@ const translations: Translations = {
     ru: 'Подтверждение',
     de: 'RSVP',
   },
-  
+
   // Home Page
   weddingTitle: {
     en: 'Liliia & Peter',
@@ -56,7 +56,7 @@ const translations: Translations = {
     ru: 'С радостью связывают свои судьбы и с нетерпением ждут возможности отпраздновать с вами!',
     de: 'Geben sich voller Freude das Jawort und können es kaum erwarten, mit dir zu feiern!',
   },
-  
+
   // Event Details
   eventDetails: {
     en: 'Event Details',
@@ -125,6 +125,36 @@ const translations: Translations = {
     ru: 'Ваше присутствие будет для нас лучшим подарком, но если вы хотите почтить нас подарком, мы будем искренне благодарны за вклад в наш медовый месяц.',
     de: 'Deine Anwesenheit wäre das größte Geschenk, aber wenn du uns mit einem Geschenk ehren möchtest, würden wir uns sehr über einen Beitrag zu unserem Hochzeitsreisegeld freuen.',
   },
+  bankTransferTitle: {
+    en: 'Bank Transfer',
+    it: 'Bonifico Bancario',
+    ru: 'Банковский перевод',
+    de: 'Banküberweisung',
+  },
+  paypalTitle: {
+    en: 'PayPal',
+    it: 'PayPal',
+    ru: 'PayPal',
+    de: 'PayPal',
+  },
+  accountName: {
+    en: 'Account Name',
+    it: 'Intestatario',
+    ru: 'Имя счёта',
+    de: 'Kontoinhaber',
+  },
+  ibanLabel: {
+    en: 'IBAN',
+    it: 'IBAN',
+    ru: 'IBAN',
+    de: 'IBAN',
+  },
+  orText: {
+    en: 'or',
+    it: 'oppure',
+    ru: 'или',
+    de: 'oder',
+  },
 
   rsvpByDate: {
     en: 'Kindly RSVP by March 1st, 2026.',
@@ -177,7 +207,7 @@ const translations: Translations = {
     ru: 'Загрузка обратного отсчета...',
     de: 'Loading countdown...',
   },
-  
+
   // RSVP
   rsvpTitle: {
     en: 'RSVP',
@@ -419,7 +449,105 @@ const translations: Translations = {
     ru: 'Открыть в Google Maps',
     de: 'In Google Maps öffnen',
   },
-  
+
+  // FAQs
+  faqsButton: {
+    en: 'FAQs',
+    it: 'FAQs',
+    ru: 'Вопросы',
+    de: 'FAQs',
+  },
+  faqsTitle: {
+    en: 'FAQs',
+    it: 'FAQs',
+    ru: 'FAQs',
+    de: 'FAQs',
+  },
+  faqQuestion1: {
+    en: 'What time should I arrive?',
+    it: 'A che ora devo arrivare?',
+    ru: 'Во сколько мне нужно приехать?',
+    de: 'Um wie viel Uhr sollte ich ankommen?',
+  },
+  faqAnswer1: {
+    en: 'Please arrive at least 30 minutes before the ceremony starts at 5:00 PM to find your seat and settle in.',
+    it: 'Si prega di arrivare almeno 30 minuti prima dell\'inizio della cerimonia alle 17:00 per trovare il proprio posto e sistemarsi.',
+    ru: 'Пожалуйста, приезжайте как минимум за 30 минут до начала церемонии в 17:00, чтобы найти свое место и устроиться.',
+    de: 'Bitte komme mindestens 30 Minuten vor Beginn der Zeremonie um 17:00 Uhr, um deinen Platz zu finden und dich einzurichten.',
+  },
+  faqQuestion2: {
+    en: 'Is there parking available?',
+    it: 'C\'è parcheggio disponibile?',
+    ru: 'Есть ли парковка?',
+    de: 'Gibt es Parkmöglichkeiten?',
+  },
+  faqAnswer2: {
+    en: 'Yes, there is free parking available near the venue. Additional street parking is also available in the village.',
+    it: 'Sì, c\'è parcheggio gratuito disponibile vicino alla location. Ulteriore parcheggio su strada è disponibile nel villaggio.',
+    ru: 'Да, рядом с местом проведения есть бесплатная парковка. Дополнительная уличная парковка также доступна в деревне.',
+    de: 'Ja, es gibt kostenlose Parkplätze in der Nähe des Veranstaltungsortes. Zusätzliche Straßenparkplätze sind auch im Dorf verfügbar.',
+  },
+  faqQuestion3: {
+    en: 'Can I bring a plus one?',
+    it: 'Posso portare un accompagnatore?',
+    ru: 'Могу ли я взять с собой гостя?',
+    de: 'Kann ich eine Begleitung mitbringen?',
+  },
+  faqAnswer3: {
+    en: 'If you would like to bring a plus one, please contact us directly.',
+    it: 'Se desiderate venire accompagnati da una persona aggiuntiva, vi preghiamo di contattarci direttamente.',
+    ru: 'Если вы хотите приехать с дополнительным гостем, пожалуйста, свяжитесь с нами напрямую.',
+    de: 'Wenn du eine Begleitung mitbringen möchtest, kontaktiere uns bitte direkt.',
+  },
+  faqQuestion4: {
+    en: 'What if I have dietary restrictions?',
+    it: 'E se ho restrizioni alimentari?',
+    ru: 'Что делать, если у меня есть диетические ограничения?',
+    de: 'Was ist, wenn ich besondere Ernährungsbedürfnisse habe?',
+  },
+  faqAnswer4: {
+    en: 'Please let us know your dietary preferences when you RSVP. We will do our best to accommodate all dietary needs.',
+    it: 'Fateci sapere le vostre preferenze alimentari quando confermate la partecipazione. Faremo del nostro meglio per soddisfare tutte le esigenze alimentari.',
+    ru: 'Пожалуйста, сообщите нам о ваших предпочтениях в еде при подтверждении участия. Мы сделаем все возможное, чтобы учесть все диетические потребности.',
+    de: 'Bitte teile uns deine Ernährungspräferenzen bei der RSVP mit. Wir werden unser Bestes tun, um alle Ernährungsbedürfnisse zu berücksichtigen.',
+  },
+  faqQuestion5: {
+    en: 'Where can I stay overnight?',
+    it: 'Dove posso pernottare?',
+    ru: 'Где я могу остановиться?',
+    de: 'Wo kann ich übernachten?',
+  },
+  faqAnswer5: {
+    en: 'We recommend that you stay in Genoa. On the wedding day, we will organize transportation from the city to the castle and back.',
+    it: 'Consigliamo di restare a Genova. Il giorno del matrimonio, organizzeremo il trasporto dalla città al castello e viceversa.',
+    ru: 'Рекомендуем остановиться в Генеа. На день свадьбы мы организуем транспортировку от города до замка и обратно.',
+    de: 'Wir empfehlen, dass du in Genoa übernachtest. Am Tag der Hochzeit werden wir das Transport von der Stadt zum Schloss und zurück organisieren.',
+  },
+  faqQuestion6: {
+    en: 'What is the dress code?',
+    it: 'Qual è il dresscode?',
+    ru: 'Какой код одежды?',
+    de: 'Was ist der Dresscode?',
+  },
+  faqAnswer6: {
+    en: 'The dresscode is modern. You can wear a suit or a dress. Don\'t be afraid to experiment, the best will win a prize.',
+    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito. Non abbiate paura di sperimentare, la/il migliore vincerà un premio.',
+    ru: 'Код одежды современный. Вы можете носить костюм или платье. Не бойтесь экспериментировать, лучшее выиграет приз.',
+    de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen. Hab keine Angst zu experimentieren, die/der Beste gewinnt einen Preis.',
+  },
+  faqQuestion7: {
+    en: 'Do you have more questions?',
+    it: 'Hai altre domande?',
+    ru: 'Есть еще вопросы?',
+    de: 'Hast du noch Fragen?',
+  },
+  faqAnswer7: {
+    en: 'For any more questions please contact Elena at +39 324 837 8491',
+    it: 'Per qualsiasi domanda aggiuntiva, contatta Elena al +39 324 837 8491',
+    ru: 'Для любых дополнительных вопросов пожалуйста свяжитесь с Еленой по телефону +39 324 837 8491',
+    de: 'Für weitere Fragen kontaktiere Elena auf +39 324 837 8491.',
+  },
+
   // Common
 };
 
