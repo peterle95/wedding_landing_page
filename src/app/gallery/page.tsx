@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
 } from "@/components/ui/dialog"
 import { useLanguage } from "@/lib/i18n"
 
@@ -56,9 +57,12 @@ export default function GalleryPage() {
           ))}
         </div>
       </div>
-      
+
       <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
         <DialogContent className="max-w-4xl p-2 sm:p-4 bg-transparent border-none shadow-none">
+          <DialogTitle className="sr-only">
+            {selectedImage?.alt || t('galleryTitle')}
+          </DialogTitle>
           {selectedImage && (
             <Image
               src={selectedImage.src}
