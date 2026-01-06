@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+
 import { CountdownTimer } from "@/components/countdown-timer";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
@@ -9,6 +12,24 @@ import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const scrollTarget = searchParams.get('scroll');
+    if (scrollTarget === 'faqs') {
+      // Remove query param from URL
+      router.replace('/', { scroll: false });
+
+      // Wait 500ms then scroll to FAQs
+      const element = document.getElementById('faqs');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+      }
+    }
+  }, [searchParams, router]);
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
@@ -128,15 +149,20 @@ export default function Home() {
               <p className="font-semibold text-lg mb-4">
                 {t('rsvpByDate')}
               </p>
-              <Button asChild size="lg" className="w-full">
-                <Link href="/rsvp">{t('rsvpButton')}</Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild size="lg" className="flex-1">
+                  <Link href="/rsvp">{t('rsvpButton')}</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="flex-1">
+                  <Link href="/?scroll=faqs">{t('faqsButton')}</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </PixelatedCard>
       </section>
 
-      <section className="my-16 md:my-24">
+      <section id="faqs" className="my-16 md:my-24 scroll-mt-20">
         <PixelatedCard title={t('faqsTitle')}>
           <div className="space-y-6">
             <div>

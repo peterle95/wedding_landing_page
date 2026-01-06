@@ -16,6 +16,7 @@ const navItems = [
   { href: "/gallery", key: "gallery" },
   { href: "/location", key: "location" },
   { href: "/rsvp", key: "rsvp" },
+  { href: "/?scroll=faqs", key: "faqsButton" },
 ]
 
 export function SiteHeader() {

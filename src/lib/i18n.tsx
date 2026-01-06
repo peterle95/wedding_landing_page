@@ -451,6 +451,12 @@ const translations: Translations = {
   },
 
   // FAQs
+  faqsButton: {
+    en: 'FAQs',
+    it: 'FAQs',
+    ru: 'Вопросы',
+    de: 'FAQs',
+  },
   faqsTitle: {
     en: 'FAQs',
     it: 'FAQs',
