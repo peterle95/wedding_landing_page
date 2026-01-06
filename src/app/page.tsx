@@ -189,6 +189,10 @@ export default function Home() {
               <h3 className="font-semibold text-lg">{t('faqQuestion6')}</h3>
               <p className="text-muted-foreground">{t('faqAnswer6')}</p>
             </div>
+            <div>
+              <h3 className="font-semibold text-lg">{t('faqQuestion7')}</h3>
+              <p className="text-muted-foreground">{t('faqAnswer7')}</p>
+            </div>
           </div>
         </PixelatedCard>
       </section>
