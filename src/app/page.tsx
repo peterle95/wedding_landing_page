@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import { CountdownTimer } from "@/components/countdown-timer";
@@ -11,6 +11,14 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 
 export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+function HomeContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
