@@ -73,7 +73,7 @@ export function SiteHeader() {
                 <div className="flex items-center justify-between border-b pb-4">
                   <div className="flex items-center justify-between w-full">
                     <Link href="/" className="flex items-center space-x-2" onClick={() => setOpen(false)}>
-                      <span className="font-bold">L&P Forever</span>
+                      <span className="font-bold">L&P</span>
                     </Link>
                     <div className="flex items-center gap-2">
                       <LanguageSwitcher />

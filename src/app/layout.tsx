@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'L&P Forever',
+  title: 'L&P',
   description: 'The wedding website of Liliia & Peter',
   icons: {
     icon: [
