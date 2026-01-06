@@ -35,11 +35,11 @@ export default function GalleryPage() {
           </div>
         </header>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
           {photos.map((photo) => (
             <div
               key={photo.id}
-              className="overflow-hidden rounded-lg cursor-pointer block relative group"
+              className="overflow-hidden rounded-lg cursor-pointer block relative group mb-4 break-inside-avoid"
               onClick={() => setSelectedImage(photo)}
             >
               <Image
