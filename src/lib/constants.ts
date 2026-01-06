@@ -6,7 +6,7 @@ export const photos = [
   { id: 1, src: "/ephesos.jpg", alt: "Couple smiling", hint: "couple smiling" },
   { id: 2, src: "/hermitage.jpg", alt: "Couple on a beach", hint: "couple beach" },
   { id: 3, src: "/crete.jpg", alt: "Couple hiking", hint: "couple hiking" },
-  { id: 4, src: "/DSC05341.jpg", alt: "Couple with a pet", hint: "couple dog" },
+  { id: 4, src: "/liluarancino.JPG", alt: "Couple with a pet", hint: "couple dog" },
   { id: 5, src: "/pride.jpg", alt: "Couple at a cafe", hint: "couple cafe" },
   { id: 6, src: "/DSC04948.jpg", alt: "Couple in a city", hint: "couple city" },
   { id: 7, src: "/swag2.jpg", alt: "Couple laughing", hint: "couple laughing" },
