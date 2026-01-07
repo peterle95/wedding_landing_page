@@ -22,6 +22,9 @@ function HomeContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
+  const address = "Genova, Italy";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
 
   useEffect(() => {
     const scrollTarget = searchParams.get('scroll');
@@ -83,6 +86,18 @@ function HomeContent() {
                 <h3 className="font-semibold text-lg">{t('dressCode')}</h3>
                 <p className="text-muted-foreground">{t('dressCodeDescription')}</p>
               </div>
+            </li>
+            <li>
+                <h3 className="font-semibold text-lg">{t('PickUpLocation')}</h3>
+                <div className="pt-4 border-t border-border/50">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild size="lg" className="flex-1">
+                      <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                        {t('openInGoogleMaps')}
+                      </Link> 
+                    </Button>
+                  </div>
+                </div>
             </li>
           </ul>
         </PixelatedCard>

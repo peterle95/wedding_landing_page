@@ -70,6 +70,18 @@ const translations: Translations = {
     ru: 'Дата и время',
     de: 'Datum & Uhrzeit',
   },
+  PickUpLocation: {
+    en: 'Pick Up Location',
+    it: 'Luogo di Raccoglienza',
+    ru: 'Место сбора',
+    de: 'Abholort',
+  },
+  PickUpLocationDescription: {
+    en: 'Pick up your gift at the venue on the day of the wedding.',
+    it: 'Raccogli il tuo regalo al luogo dell\'evento il giorno del matrimonio.',
+    ru: 'Получите свой подарок на месте в день свадьбы.',
+    de: 'Nehmen Sie Ihr Geschenk am Tag des Hochzeitsfeierabends an dem Ort an.',
+  },
   eventDate: {
     en: 'Saturday, June 27th, 2026',
     it: 'Sabato 27 Giugno 2026',
