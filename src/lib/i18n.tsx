@@ -113,10 +113,10 @@ const translations: Translations = {
     de: 'Dress Code',
   },
   dressCodeDescription: {
-    en: 'Colorful, modern and elegant',
-    it: 'Colori, moderno e elegante',
-    ru: 'Красивый, современный и элегантный',
-    de: 'Farbenfroh, modern und elegant',
+    en: 'Colorful, modern and elegant. Don\'t be afraid to experiment, the best will win a prize.',
+    it: 'Colori, moderno e elegante. Non esitare a esplorare, la/il migliore vincerà un premio.',
+    ru: 'Красивый, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз.',
+    de: 'Farbenfroh, modern und elegant. Nie für Experimente zurückhaltend sein, die/der Beste wird einen Preis bekommen.',
   },
 
   giftMessage: {

@@ -12,7 +12,10 @@
     "typecheck": "tsc --noEmit",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:run:iphone": "cypress run --config viewportWidth=414,viewportHeight=896"
+    "cypress:run:iphone": "cypress run --config viewportWidth=414,viewportHeight=896",
+    "test:all": "cypress run",
+    "test:multi-device": "cypress run --spec \"cypress/e2e/multi-device-smoke.cy.ts\"",
+    "test:stress": "cypress run --spec \"cypress/e2e/navigation-stress.cy.ts\""
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.14.1",
