@@ -32,7 +32,7 @@ const translations: Translations = {
   },
   location: {
     en: 'Location',
-    it: 'Posizione',
+    it: 'Luogo',
     ru: 'Локация',
     de: 'Ort',
   },
@@ -69,6 +69,36 @@ const translations: Translations = {
     it: 'Data e Ora',
     ru: 'Дата и время',
     de: 'Datum & Uhrzeit',
+  },
+  uploadTitle: {
+    en: 'Share Your Moments',
+    it: 'Condividi i Tuoi Momenti',
+    ru: 'Поделитесь Моментами',
+    de: 'Teile Deine Momente',
+  },
+  uploadDescription: {
+    en: 'Capture the love! Upload your photos and videos to our shared album.',
+    it: 'Cattura l\'amore! Carica le tue foto e i tuoi video nel nostro album condiviso.',
+    ru: 'Запечатлейте любовь! Загрузите ваши фото и видео в наш общий альбом.',
+    de: 'Fange die Liebe ein! Lade deine Fotos und Videos in unser gemeinsames Album hoch.',
+  },
+  uploadButton: {
+    en: 'Upload',
+    it: 'Carica',
+    ru: 'Загрузить',
+    de: 'Hochladen',
+  },
+  PickUpLocation: {
+    en: 'Pick Up Location',
+    it: 'Luogo di Raccoglienza',
+    ru: 'Место сбора',
+    de: 'Abholort',
+  },
+  PickUpLocationDescription: {
+    en: 'Click on the button to open Google Maps. Departure is at 15:30.',
+    it: 'Clicca sul pulsante per aprire Google Maps. La partenza è alle 15:30.',
+    ru: 'Нажмите на кнопку, чтобы открыть Google Maps. Отправление в 15:30.',
+    de: 'Klicke auf den Button, um Google Maps zu öffnen. Abfahrt ist um 15:30.',
   },
   eventDate: {
     en: 'Saturday, June 27th, 2026',

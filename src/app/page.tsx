@@ -22,6 +22,9 @@ function HomeContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
+  const address = "Piazza della Vittoria, Genova";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
 
   useEffect(() => {
     const scrollTarget = searchParams.get('scroll');
@@ -82,6 +85,38 @@ function HomeContent() {
               <div>
                 <h3 className="font-semibold text-lg">{t('dressCode')}</h3>
                 <p className="text-muted-foreground">{t('dressCodeDescription')}</p>
+              </div>
+            </li>
+            <li>
+              <div className="pt-4 border-t border-border/50">
+                <h3 className="font-semibold text-lg">{t('uploadTitle')}</h3>
+                <div className="flex flex-col gap-3">
+                  <p className="text-muted-foreground">{t('uploadDescription')}</p>
+                  <a
+                    href="#"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-full transition-colors shadow-sm hover:shadow w-full"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="17 8 12 3 7 8" />
+                      <line x1="12" x2="12" y1="3" y2="15" />
+                    </svg>
+                    {t('uploadButton')}
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="pt-4 border-t border-border/50">
+                <h3 className="font-semibold text-lg">{t('PickUpLocation')}</h3>
+                <div className="flex flex-col gap-3">
+                  <p className="text-muted-foreground">{t('PickUpLocationDescription')}</p>
+                  <Button asChild size="lg" className="w-full">
+                    <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                      {t('openInGoogleMaps')}
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </li>
           </ul>
