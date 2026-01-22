@@ -90,7 +90,7 @@ const translations: Translations = {
   },
   PickUpLocation: {
     en: 'Pick Up Location',
-    it: 'Luogo di Raccoglienza',
+    it: 'Punto di ritrovo',
     ru: 'Место сбора',
     de: 'Abholort',
   },
