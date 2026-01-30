@@ -144,16 +144,16 @@ const translations: Translations = {
   },
   dressCodeDescription: {
     en: 'Colorful, modern and elegant. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Colori, moderno e elegante. Non esitare a esplorare, la/il migliore vincerà un premio.',
+    it: 'Colori, moderno e elegante. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
     ru: 'Красивый, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз.',
-    de: 'Farbenfroh, modern und elegant. Nie für Experimente zurückhaltend sein, die/der Beste wird einen Preis bekommen.',
+    de: 'Farbenfroh, modern und elegant. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen.',
   },
 
   giftMessage: {
-    en: 'Your presence would be the greatest gift, but if you wish to honor us with a gift, a contribution to our honeymoon fund would be warmly appreciated.',
-    it: 'La tua presenza sarebbe il più grande regalo, ma se desideri onorarci con un regalo, una donazione al nostro fondo di nozze sarebbe apprezzata.',
-    ru: 'Ваше присутствие будет для нас лучшим подарком, но если вы хотите почтить нас подарком, мы будем искренне благодарны за вклад в наш медовый месяц.',
-    de: 'Deine Anwesenheit wäre das größte Geschenk, aber wenn du uns mit einem Geschenk ehren möchtest, würden wir uns sehr über einen Beitrag zu unserem Hochzeitsreisegeld freuen.',
+    en: 'Your presence would be the greatest gift, but if you want to support us, a contribution to our honeymoon fund would be warmly appreciated.',
+    it: 'La tua presenza sarebbe il più grande regalo, ma se vuoi supportarci, una donazione al nostro fondo di nozze sarebbe apprezzata.',
+    ru: 'Ваше присутствие будет для нас лучшим подарком, но если вы хотите поддержать нас, мы будем искренне благодарны за вклад в наш медовый месяц.',
+    de: 'Deine Anwesenheit wäre das größte Geschenk, aber wenn du uns unterstützen möchtest, würden wir uns sehr über einen Beitrag zu unserem Hochzeitsreisegeld freuen.',
   },
   bankTransferTitle: {
     en: 'Bank Transfer',
@@ -293,11 +293,17 @@ const translations: Translations = {
     ru: 'Введите ваше имя для подтверждения',
     de: 'Gib deinen Namen ein, um zu bestätigen',
   },
-  startTyping: {
+  startTypingName: {
     en: 'Type your name here',
     it: 'Scrivi il tuo nome qui',
     ru: 'Введите ваше имя здесь',
     de: 'Gib deinen Namen hier ein',
+  },
+  startTypingSurname: {
+    en: 'Type your surname here',
+    it: 'Scrivi il tuo cognome qui',
+    ru: 'Введите вашу фамилию здесь',
+    de: 'Gib deinen Nachnamen hier ein',
   },
   accept: {
     en: 'Accept',
@@ -561,7 +567,7 @@ const translations: Translations = {
   },
   faqAnswer6: {
     en: 'The dresscode is modern. You can wear a suit or a dress. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito. Non abbiate paura di sperimentare, la/il migliore vincerà un premio.',
+    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
     ru: 'Код одежды современный. Вы можете носить костюм или платье. Не бойтесь экспериментировать, лучшее выиграет приз.',
     de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen. Hab keine Angst zu experimentieren, die/der Beste gewinnt einen Preis.',
   },

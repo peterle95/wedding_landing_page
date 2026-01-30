@@ -198,7 +198,7 @@ export default function RsvpPage() {
                       <FormItem>
                         <FormLabel className="text-lg">{t('selectName')}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('startTyping')} {...field} />
+                          <Input placeholder={t('startTypingName')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -212,7 +212,7 @@ export default function RsvpPage() {
                       <FormItem>
                         <FormLabel className="text-lg">{t('surname') || 'Surname'}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('startTyping')} {...field} />
+                          <Input placeholder={t('startTypingSurname')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
