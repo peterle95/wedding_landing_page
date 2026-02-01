@@ -15,6 +15,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import Link from "next/link";
@@ -34,13 +36,25 @@ const rsvpFormSchema = z.object({
   surname: z.string().min(2, {
     message: "Please enter your surname.",
   }),
-  foodPreference: z.string().optional(),
+  foodPreference: z.string({ required_error: "Please select a food preference." }),
   guestCount: z.coerce.number().min(1, {
     message: "Please enter the number of guests.",
   }),
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
+  hasAllergies: z.enum(["yes", "no"], {
+    required_error: "Please select if you have allergies.",
+  }),
+  allergyDetails: z.string().optional(),
+}).refine((data) => {
+  if (data.hasAllergies === "yes" && !data.allergyDetails?.trim()) {
+    return false;
+  }
+  return true;
+}, {
+  message: "Please provide details about your allergies.",
+  path: ["allergyDetails"],
 });
 
 type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
@@ -53,6 +67,7 @@ export default function RsvpPage() {
   const [foodOptions, setFoodOptions] = useState<string[]>([]);
   const [loadingFoodOptions, setLoadingFoodOptions] = useState(true);
   const [selectedFoodPreference, setSelectedFoodPreference] = useState("");
+  const [hasAllergies, setHasAllergies] = useState<string>("");
 
   const form = useForm<RsvpFormValues>({
     resolver: zodResolver(rsvpFormSchema),
@@ -62,6 +77,8 @@ export default function RsvpPage() {
       foodPreference: "",
       guestCount: 1,
       email: "",
+      hasAllergies: undefined,
+      allergyDetails: "",
     },
   });
 
@@ -117,6 +134,8 @@ export default function RsvpPage() {
         status,
         guestCount: values.guestCount,
         email: values.email,
+        hasAllergies: values.hasAllergies,
+        allergyDetails: values.hasAllergies === "yes" ? values.allergyDetails : "",
       };
       if (status === "Accepted" && selectedFoodPreference) {
         body.foodPreference = selectedFoodPreference;
@@ -148,12 +167,14 @@ export default function RsvpPage() {
   // Helper functions to determine when buttons should be shown
   function shouldShowAcceptButton() {
     const v = form.getValues();
-    return !!v.name && !!v.surname && !!selectedFoodPreference && v.guestCount >= 1 && !!v.email;
+    const hasAllergyValidation = v.hasAllergies === "no" || (v.hasAllergies === "yes" && v.allergyDetails?.trim());
+    return !!v.name && !!v.surname && !!v.foodPreference && v.guestCount >= 1 && !!v.email && !!v.hasAllergies && hasAllergyValidation;
   }
 
   function shouldShowDeclineButton() {
     const v = form.getValues();
-    return !!v.name && !!v.surname && v.guestCount >= 1 && !!v.email;
+    const hasAllergyValidation = v.hasAllergies === "no" || (v.hasAllergies === "yes" && v.allergyDetails?.trim());
+    return !!v.name && !!v.surname && v.guestCount >= 1 && !!v.email && !!v.hasAllergies && hasAllergyValidation;
   }
 
   if (submitted) {
@@ -191,33 +212,35 @@ export default function RsvpPage() {
             <div>
               <Form {...form}>
                 <div className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-lg">{t('selectName')}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={t('startTypingName')} {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-lg">{t('selectName')}</FormLabel>
+                          <FormControl>
+                            <Input placeholder={t('startTypingName')} {...field} className="w-full" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="surname"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-lg">{t('surname') || 'Surname'}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={t('startTypingSurname')} {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="surname"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-lg">{t('surname') || 'Surname'}</FormLabel>
+                          <FormControl>
+                            <Input placeholder={t('startTypingSurname')} {...field} className="w-full" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                   <FormField
                     control={form.control}
@@ -231,7 +254,7 @@ export default function RsvpPage() {
                               setSelectedFoodPreference(value);
                               field.onChange(value);
                             }}
-                            value={selectedFoodPreference}
+                            value={field.value}
                             disabled={loadingFoodOptions}
                           >
                             <SelectTrigger>
@@ -289,6 +312,55 @@ export default function RsvpPage() {
                       </FormItem>
                     )}
                   />
+
+                  <FormField
+                    control={form.control}
+                    name="hasAllergies"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg">Allergies/Food Intolerances</FormLabel>
+                        <FormControl>
+                          <RadioGroup
+                            onValueChange={(value) => {
+                              setHasAllergies(value);
+                              field.onChange(value);
+                            }}
+                            value={field.value}
+                            className="flex flex-row space-x-6"
+                          >
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="yes" id="allergies-yes" />
+                              <Label htmlFor="allergies-yes">Yes</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <RadioGroupItem value="no" id="allergies-no" />
+                              <Label htmlFor="allergies-no">No</Label>
+                            </div>
+                          </RadioGroup>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {hasAllergies === "yes" && (
+                    <FormField
+                      control={form.control}
+                      name="allergyDetails"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-lg">Please specify your allergies</FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Please describe your allergies..."
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  )}
 
 
 

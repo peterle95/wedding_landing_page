@@ -71,9 +71,21 @@ export async function POST(req: Request) {
     const foodPreference = translateFoodPreferenceToEnglish(foodPreferenceRaw); // Translate to English
     const guestCount = (body?.guestCount || 1).toString().trim(); // Number of guests
     const email = (body?.email || "").toString().trim(); // Guest email
+    const hasAllergies = (body?.hasAllergies || "").toString().trim(); // yes | no
+    const allergyDetails = (body?.allergyDetails || "").toString().trim(); // Details if yes
 
     if (!name || !surname || !status) {
       return NextResponse.json({ error: "Missing name, surname or status" }, { status: 400 });
+    }
+
+    // Allergy fields are mandatory
+    if (!hasAllergies) {
+      return NextResponse.json({ error: "Please specify if you have allergies" }, { status: 400 });
+    }
+
+    // If allergies are selected, details are required
+    if (hasAllergies.toLowerCase() === "yes" && !allergyDetails) {
+      return NextResponse.json({ error: "Please provide details about your allergies" }, { status: 400 });
     }
 
     // For accepted RSVPs, food preference is required
@@ -82,7 +94,7 @@ export async function POST(req: Request) {
     }
 
     const sheets = await getSheetsClient();
-    // Insert a new row at position 2 (after header): [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email]
+    // Insert a new row at position 2 (after header): [Name, Surname, RSVP status, Date Response, Food, Guest Count, Email, Has Allergies, Allergy Details]
     const targetSheet = status.toLowerCase() === "accepted" ? "LandingPage" : SHEET_NAME;
     const now = new Date();
     const values = [
@@ -93,6 +105,8 @@ export async function POST(req: Request) {
       foodPreference || "",
       guestCount,
       email,
+      hasAllergies,
+      allergyDetails || "",
     ];
 
     // First, get the sheet ID for the target sheet
@@ -133,7 +147,7 @@ export async function POST(req: Request) {
     // Now update the newly inserted row with our values
     await sheets.spreadsheets.values.update({
       spreadsheetId: SPREADSHEET_ID,
-      range: `'${targetSheet}'!A2:G2`,
+      range: `'${targetSheet}'!A2:I2`,
       valueInputOption: "USER_ENTERED",
       requestBody: { values: [values] },
     });

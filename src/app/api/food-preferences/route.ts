@@ -7,7 +7,6 @@ const OPTIONS = [
   { key: "vegan", en: "Vegan", it: "Vegano", de: "Vegan", ru: "Веганское" },
   { key: "vegetarian", en: "Vegetarian", it: "Vegetariano", de: "Vegetarisch", ru: "Вегетарианское" },
   { key: "no_restrictions", en: "No Restrictions", it: "Nessuna restrizione", de: "Keine Einschränkungen", ru: "Без ограничений" },
-  { key: "other", en: "Other", it: "Altro", de: "Sonstiges", ru: "Другое" },
 ];
 
 const translations = {
