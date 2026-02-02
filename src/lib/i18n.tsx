@@ -445,6 +445,24 @@ const translations: Translations = {
     ru: 'Введите ваш адрес электронной почты',
     de: 'Gib deine E-Mail-Adresse ein',
   },
+  allergies: {
+    en: 'Allergies',
+    it: 'Allergie',
+    ru: 'Аллергии',
+    de: 'Allergien',
+  },
+  allergiesPlaceholder: {
+    en: 'Enter your allergies',
+    it: 'Inserisci le tue allergie',
+    ru: 'Введите ваши аллергии',
+    de: 'Gib deine Allergien ein',
+  },
+  allergiesDescription: {
+    en: 'Please describe your allergies',
+    it: 'Per favore descrivi le tue allergie',
+    ru: 'Пожалуйста, опишите ваши аллергии',
+    de: 'Bitte beschreibe deine Allergien',
+  },
 
   // Gallery
   galleryTitle: {

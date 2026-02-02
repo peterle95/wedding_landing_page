@@ -318,7 +318,7 @@ export default function RsvpPage() {
                     name="hasAllergies"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-lg">Allergies/Food Intolerances</FormLabel>
+                        <FormLabel className="text-lg">{t('allergies')}</FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={(value) => {
@@ -349,10 +349,10 @@ export default function RsvpPage() {
                       name="allergyDetails"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-lg">Please specify your allergies</FormLabel>
+                          <FormLabel className="text-lg">{t('allergiesPlaceholder')}</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Please describe your allergies..."
+                              placeholder={t('allergiesDescription')}
                               {...field}
                             />
                           </FormControl>
