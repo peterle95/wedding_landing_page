@@ -330,11 +330,11 @@ export default function RsvpPage() {
                           >
                             <div className="flex items-center space-x-2">
                               <RadioGroupItem value="yes" id="allergies-yes" />
-                              <Label htmlFor="allergies-yes">Yes</Label>
+                              <Label htmlFor="allergies-yes">{t('yes')}</Label>
                             </div>
                             <div className="flex items-center space-x-2">
                               <RadioGroupItem value="no" id="allergies-no" />
-                              <Label htmlFor="allergies-no">No</Label>
+                              <Label htmlFor="allergies-no">{t('no')}</Label>
                             </div>
                           </RadioGroup>
                         </FormControl>

@@ -457,6 +457,18 @@ const translations: Translations = {
     ru: 'Введите ваши аллергии',
     de: 'Gib deine Allergien ein',
   },
+  yes: {
+    en: 'Yes',
+    it: 'Sì',
+    ru: 'Да',
+    de: 'Ja',
+  },
+  no: {
+    en: 'No',
+    it: 'No',
+    ru: 'Нет',
+    de: 'Nein',
+  },  
   allergiesDescription: {
     en: 'Please describe your allergies',
     it: 'Per favore descrivi le tue allergie',
