@@ -148,6 +148,13 @@ const translations: Translations = {
     ru: 'Женщины: красочный, современный и элегантный. Мужчины: Тюкседа или черный галош. Не бойтесь экспериментировать, лучший выиграет приз.',
     de: 'Frauen: Farbenfroh, modern und elegant. Männer: Tuxedo oder schwarzer Cravat. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen.',
   },
+  moodBoard: {
+    en: 'Check the mood board',
+    it: 'Controlla il mood board',
+    ru: 'Проверьте мудборд',
+    de: 'Check the mood board',
+  },
+
 
   giftMessage: {
     en: 'Your presence would be the greatest gift, but if you want to support us, a contribution to our honeymoon fund would be warmly appreciated.',
@@ -468,7 +475,7 @@ const translations: Translations = {
     it: 'No',
     ru: 'Нет',
     de: 'Nein',
-  },  
+  },
   allergiesDescription: {
     en: 'Please describe your allergies',
     it: 'Per favore descrivi le tue allergie',
