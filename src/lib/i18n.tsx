@@ -143,10 +143,10 @@ const translations: Translations = {
     de: 'Dress Code',
   },
   dressCodeDescription: {
-    en: 'Colorful, modern and elegant. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Colori, moderno e elegante. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
-    ru: 'Красивый, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз.',
-    de: 'Farbenfroh, modern und elegant. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen.',
+    en: 'Women: Colorful, modern and elegant. Men: Tuxedo or black tie. Don\'t be afraid to experiment, the best will win a prize.',
+    it: 'Donne: Colorato, moderno e elegante. Uomini: Tuxedo o cravattino nero. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
+    ru: 'Женщины: красочный, современный и элегантный. Мужчины: Тюкседа или черный галош. Не бойтесь экспериментировать, лучший выиграет приз.',
+    de: 'Frauen: Farbenfroh, modern und elegant. Männer: Tuxedo oder schwarzer Cravat. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen.',
   },
 
   giftMessage: {
