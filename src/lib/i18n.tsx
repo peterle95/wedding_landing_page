@@ -152,7 +152,7 @@ const translations: Translations = {
     en: 'Check the mood board',
     it: 'Controlla il mood board',
     ru: 'Проверьте мудборд',
-    de: 'Check the mood board',
+    de: 'Check das mood board',
   },
 
 
@@ -194,10 +194,10 @@ const translations: Translations = {
   },
 
   rsvpByDate: {
-    en: 'Kindly RSVP by March 1st, 2026.',
-    it: 'Fateci sapere entro il 1° Marzo 2026.',
-    ru: 'Пожалуйста, подтвердите ваше присутствие до 1 марта 2026 года.',
-    de: 'Bitte teile uns bis zum 1. März 2026 mit, ob du kommen kannst.',
+    en: 'Kindly RSVP by March 15th, 2026.',
+    it: 'Fateci sapere entro il 15° Marzo 2026.',
+    ru: 'Пожалуйста, подтвердите ваше присутствие до 15 марта 2026 года.',
+    de: 'Bitte teile uns bis zum 15. März 2026 mit, ob du kommen kannst.',
   },
 
   rsvpButton: {
@@ -265,10 +265,10 @@ const translations: Translations = {
     de: 'Wirst du da sein?',
   },
   rsvpPageSubtitle: {
-    en: 'Please let us know if you can make it by March 1st, 2026.',
-    it: 'Facci sapere entro il 1° Marzo 2026.',
-    ru: 'Пожалуйста, сообщите нам, если вы сможете присутствовать до 1 марта 2026 года.',
-    de: 'Bitte teile uns bis zum 1. März 2026 mit, ob du kommen kannst.',
+    en: 'Please let us know if you can make it by March 15th, 2026.',
+    it: 'Facci sapere entro il 15° Marzo 2026.',
+    ru: 'Пожалуйста, сообщите нам, если вы сможете присутствовать до 15 марта 2026 года.',
+    de: 'Bitte teile uns bis zum 15. März 2026 mit, ob du kommen kannst.',
   },
   selectName: {
     en: 'Name',
