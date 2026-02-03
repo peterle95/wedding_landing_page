@@ -598,13 +598,13 @@ const translations: Translations = {
   },
   faqQuestion6: {
     en: 'What is the dress code?',
-    it: 'Qual è il dresscode?',
+    it: 'Qual è il dress code?',
     ru: 'Какой код одежды?',
     de: 'Was ist der Dresscode?',
   },
   faqAnswer6: {
-    en: 'The dresscode is modern. You can wear a suit or a dress. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Il dresscode è moderno. Puoi indossare un abito o un vestito. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
+    en: 'The dress code is modern. You can wear a suit or a dress. Don\'t be afraid to experiment, the best will win a prize.',
+    it: 'Il dress code è moderno. Puoi indossare un abito o un vestito. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
     ru: 'Код одежды современный. Вы можете носить костюм или платье. Не бойтесь экспериментировать, лучшее выиграет приз.',
     de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen. Hab keine Angst zu experimentieren, die/der Beste gewinnt einen Preis.',
   },
@@ -617,8 +617,20 @@ const translations: Translations = {
   faqAnswer7: {
     en: 'For any more questions please contact Elena at +39 324 837 8491',
     it: 'Per qualsiasi domanda aggiuntiva, contatta Elena al +39 324 837 8491',
-    ru: 'Для любых дополнительных вопросов пожалуйста свяжитесь с Еленой по телефону +39 324 837 8491',
+    ru: 'Для любых дополнительных вопросов пожалуйста свяжитесь с Елене по телефону +39 324 837 8491',
     de: 'Für weitere Fragen kontaktiere Elena auf +39 324 837 8491.',
+  },
+  faqQuestion8: {
+    en: 'Is the venue accessible for people with motor disabilities?',
+    it: 'La location è accessibile a persone con disabilità motorie?',
+    ru: 'Доступно ли место для людей с ограниченными возможностями передвижения?',
+    de: 'Ist der Veranstaltungsort für Menschen mit motorischen Behinderungen zugänglich?',
+  },
+  faqAnswer8: {
+    en: 'The venue is accessible for people with motor disabilities. They can be accompanied by car to the venue.',
+    it: 'La location è accessibile a persone con disabilità motorie. Possono essere accompagnate in auto fino alla location.',
+    ru: 'Место проведения доступно для людей с ограниченными возможностями передвижения. Их можно сопровождать на машине до места проведения.',
+    de: 'Der Veranstaltungsort ist für Menschen mit motorischen Behinderungen zugänglich. Sie können mit dem Auto zum Veranstaltungsort gebracht werden.',
   },
 
   // Common
