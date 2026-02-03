@@ -143,10 +143,10 @@ const translations: Translations = {
     de: 'Dress Code',
   },
   dressCodeDescription: {
-    en: 'Women: Colorful, modern and elegant. Men: Tuxedo or black tie. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Donne: Colorato, moderno e elegante. Uomini: Tuxedo o cravattino nero. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
-    ru: 'Женщины: красочный, современный и элегантный. Мужчины: Тюкседа или черный галош. Не бойтесь экспериментировать, лучший выиграет приз.',
-    de: 'Frauen: Farbenfroh, modern und elegant. Männer: Tuxedo oder schwarzer Cravat. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen.',
+    en: 'Colorful, modern and elegant. Don\'t be afraid to experiment, the best will win a prize. Please click on the button for more information.',
+    it: 'Colorato, moderno e elegante. Non aver paura di sperimentare, la/il migliore vincerà un premio. Clicca sul pulsante per maggiori informazioni.',
+    ru: 'Красочный, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз. Нажмите на кнопку для получения дополнительной информации.',
+    de: 'Farbenfroh, modern und elegant. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen. Klicke auf den Button für weitere Informationen.',
   },
   moodBoard: {
     en: 'Check the mood board',
@@ -212,7 +212,7 @@ const translations: Translations = {
     en: 'Countdown to the Big Day!',
     it: 'Conto alla rovescia per il grande giorno!',
     ru: 'Обратный отсчет до важного дня!',
-    de: 'Countdown zum großen Tag!',
+    de: 'Countdown zum großen Tag!'
   },
   days: {
     en: 'days',
