@@ -633,10 +633,10 @@ const translations: Translations = {
     de: 'Hast du noch Fragen?',
   },
   faqAnswer7: {
-    en: 'For any more questions please contact Elena at +39 324 837 8491',
-    it: 'Per qualsiasi domanda aggiuntiva, contatta Elena al +39 324 837 8491',
-    ru: 'Для любых дополнительных вопросов пожалуйста свяжитесь с Елене по телефону +39 324 837 8491',
-    de: 'Für weitere Fragen kontaktiere Elena auf +39 324 837 8491.',
+    en: 'For any more questions please contact Elena at +39 324 837 8491 (RU/IT) or Anastasia at +357 94 047927 (RU/EN)',
+    it: 'Per qualsiasi domanda aggiuntiva, contatta Elena al +39 324 837 8491 (RU/IT) o Anastasia al +357 94 047927 (RU/EN)',
+    ru: 'Для любых дополнительных вопросов пожалуйста свяжитесь с Еленой по телефону +39 324 837 8491 (RU/IT) или Анастасией по телефону +357 94 047927 (RU/EN)',
+    de: 'Für weitere Fragen kontaktiere Elena unter +39 324 837 8491 (RU/IT) oder Anastasia unter +357 94 047927 (RU/EN).',
   },
   faqQuestion8: {
     en: 'Is the venue accessible for people with motor disabilities?',
