@@ -86,6 +86,22 @@ function HomeContent() {
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-semibold text-lg">{t('dressCode')}</h3>
                   <a
+                  href="https://docs.google.com/spreadsheets/d/1Bfd-I1eL3PhhCg1wrpPCF4TjaYoi6PKDcHUk1FcFWMs/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-xs font-medium rounded-full transition-colors shadow-sm"
+                >
+                  <div className="relative w-4 h-4 shrink-0">
+                    <Image
+                      src="/Google_Sheets_logo_(2014-2020).png"
+                      alt="Google Sheets"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  {t('checkExamples')}
+                </a>
+                  <a
                     href="https://pin.it/1aXGdf0VG"
                     target="_blank"
                     rel="noopener noreferrer"

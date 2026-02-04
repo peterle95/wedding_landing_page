@@ -161,10 +161,10 @@ const translations: Translations = {
     de: '-Bereich für weitere Details.',
   },
   checkExamples: {
-    en: 'Check concrete examples',
-    it: 'Controlla esempi concreti',
-    ru: 'Посмотрите конкретные примеры нарядов',
-    de: 'Siehe konkrete Beispiele',
+    en: 'Shopping inspiration',
+    it: 'Shopping inspiration',
+    ru: 'Shopping inspiration',
+    de: 'Shopping inspiration',
   },
   moodBoard: {
     en: 'Check the mood board',
