@@ -139,13 +139,13 @@ const translations: Translations = {
   dressCode: {
     en: 'Dress Code',
     it: 'Dress Code',
-    ru: 'Код одежды',
+    ru: 'Дресс-код',
     de: 'Dress Code',
   },
   dressCodeDescription: {
     en: 'Colorful, modern and elegant. Don\'t be afraid to experiment, the best will win a prize. Please click on the button for more information.',
     it: 'Colorato, moderno e elegante. Non aver paura di sperimentare, la/il migliore vincerà un premio. Clicca sul pulsante per maggiori informazioni.',
-    ru: 'Красочный, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз. Нажмите на кнопку для получения дополнительной информации.',
+    ru: 'Красочный, современный и элегантный. Не бойтесь экспериментировать, лучший наряд выиграет приз. Нажмите на кнопку для получения дополнительной информации.',
     de: 'Farbenfroh, modern und elegant. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen. Klicke auf den Button für weitere Informationen.',
   },
   visitFaqsPrefix: {
@@ -163,7 +163,7 @@ const translations: Translations = {
   checkExamples: {
     en: 'Check concrete examples',
     it: 'Controlla esempi concreti',
-    ru: 'Посмотрите конкретные примеры',
+    ru: 'Посмотрите конкретные примеры нарядов',
     de: 'Siehe konkrete Beispiele',
   },
   moodBoard: {
@@ -617,7 +617,7 @@ const translations: Translations = {
   faqQuestion6: {
     en: 'What is the dress code?',
     it: 'Qual è il dress code?',
-    ru: 'Какой код одежды?',
+    ru: 'Какой дресс-код?',
     de: 'Was ist der Dresscode?',
   },
   faqAnswer6: {

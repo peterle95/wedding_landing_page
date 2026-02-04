@@ -60,37 +60,31 @@ function translateFoodPreferenceToEnglish(localizedValue: string): string {
 function getCETTimestamp(date: Date): string {
   // CET is UTC+1, CEST is UTC+2
   // CEST applies from last Sunday in March to last Sunday in October
-  
-  const year = date.getFullYear();
-  const month = date.getMonth(); // 0-11 (January is 0)
-  const day = date.getDate();
-  
-  // Calculate last Sunday in March
-  const marchLastSunday = new Date(year, 2, 31); // March 31
-  marchLastSunday.setDate(marchLastSunday.getDate() - marchLastSunday.getDay());
-  
-  // Calculate last Sunday in October
-  const octoberLastSunday = new Date(year, 9, 31); // October 31
-  octoberLastSunday.setDate(octoberLastSunday.getDate() - octoberLastSunday.getDay());
-  
-  // Check if we're in CEST period (last Sunday in March to last Sunday in October)
-  const isCEST = (month > 2 || (month === 2 && day >= marchLastSunday.getDate())) &&
-                 (month < 9 || (month === 9 && day <= octoberLastSunday.getDate()));
-  
-  // Apply timezone offset
-  const utcTime = date.getTime();
-  const cetOffset = isCEST ? 2 : 1; // CEST is UTC+2, CET is UTC+1
-  const cetTime = new Date(utcTime - (cetOffset * 60 * 60 * 1000));
-  
-  // Format as YYYY-MM-DDTHH:MM:SS (without Z to indicate it's not UTC)
-  const yearStr = cetTime.getFullYear();
-  const monthStr = String(cetTime.getMonth() + 1).padStart(2, '0');
-  const dayStr = String(cetTime.getDate()).padStart(2, '0');
-  const hoursStr = String(cetTime.getHours()).padStart(2, '0');
-  const minutesStr = String(cetTime.getMinutes()).padStart(2, '0');
-  const secondsStr = String(cetTime.getSeconds()).padStart(2, '0');
-  
-  return `${yearStr}-${monthStr}-${dayStr}T${hoursStr}:${minutesStr}:${secondsStr}`;
+
+  const parts = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Berlin",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+
+  const get = (type: Intl.DateTimeFormatPartTypes) => parts.find((p) => p.type === type)?.value;
+  const yearStr = get("year");
+  const monthStr = get("month");
+  const dayStr = get("day");
+  const hoursStr = get("hour");
+  const minutesStr = get("minute");
+  const secondsStr = get("second");
+
+  if (!yearStr || !monthStr || !dayStr || !hoursStr || !minutesStr || !secondsStr) {
+    return date.toISOString();
+  }
+
+  return `${yearStr}-${monthStr}-${dayStr} ${hoursStr}:${minutesStr}:${secondsStr}`;
 }
 
 export async function POST(req: Request) {
