@@ -148,6 +148,24 @@ const translations: Translations = {
     ru: 'Красочный, современный и элегантный. Не бойтесь экспериментировать, лучший выиграет приз. Нажмите на кнопку для получения дополнительной информации.',
     de: 'Farbenfroh, modern und elegant. Hab keine Angst zu experimentieren, die/der Beste wird einen Preis bekommen. Klicke auf den Button für weitere Informationen.',
   },
+  visitFaqsPrefix: {
+    en: 'Visit the ',
+    it: 'Visita la sezione ',
+    ru: 'Посетите раздел ',
+    de: 'Besuche den ',
+  },
+  visitFaqsSuffix: {
+    en: ' section for more details.',
+    it: ' per maggiori dettagli.',
+    ru: ' для получения дополнительной информации.',
+    de: '-Bereich für weitere Details.',
+  },
+  checkExamples: {
+    en: 'Check concrete examples',
+    it: 'Controlla esempi concreti',
+    ru: 'Посмотрите конкретные примеры',
+    de: 'Siehe konkrete Beispiele',
+  },
   moodBoard: {
     en: 'Check the mood board',
     it: 'Controlla il mood board',
@@ -603,10 +621,10 @@ const translations: Translations = {
     de: 'Was ist der Dresscode?',
   },
   faqAnswer6: {
-    en: 'The dress code is modern. You can wear a suit or a dress. Don\'t be afraid to experiment, the best will win a prize.',
-    it: 'Il dress code è moderno. Puoi indossare un abito o un vestito. Non aver paura di sperimentare, la/il migliore vincerà un premio.',
-    ru: 'Код одежды современный. Вы можете носить костюм или платье. Не бойтесь экспериментировать, лучшее выиграет приз.',
-    de: 'Der Dresscode ist modern. Du kannst einen Anzug oder ein Kleid tragen. Hab keine Angst zu experimentieren, die/der Beste gewinnt einen Preis.',
+    en: 'Please click the buttons to see concrete examples of the dress code.',
+    it: 'Segui il link per vedere esempi concreti del dress code.',
+    ru: 'Следуйте по ссылке, чтобы увидеть конкретные примеры дресс-кода.',
+    de: 'Folge dem Link, um konkrete Beispiele für den Dresscode zu sehen.',
   },
   faqQuestion7: {
     en: 'Do you have more questions?',

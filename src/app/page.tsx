@@ -97,7 +97,18 @@ function HomeContent() {
                     {t('moodBoard')}
                   </a>
                 </div>
-                <p className="text-muted-foreground">{t('dressCodeDescription')}</p>
+                <p className="text-muted-foreground">
+                  {t('dressCodeDescription')} {t('visitFaqsPrefix')}
+                  <button
+                    onClick={() => {
+                      document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="underline hover:text-primary cursor-pointer inline p-0 h-auto font-normal text-muted-foreground bg-transparent border-0"
+                  >
+                    {t('faqsButton')}
+                  </button>
+                  {t('visitFaqsSuffix')}
+                </p>
               </div>
             </li>
             <li>
@@ -237,7 +248,36 @@ function HomeContent() {
               <p className="text-muted-foreground">{t('faqAnswer5')}</p>
             </div>
             <div>
-              <h3 className="font-semibold text-lg">{t('faqQuestion6')}</h3>
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <h3 className="font-semibold text-lg">{t('faqQuestion6')}</h3>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1Bfd-I1eL3PhhCg1wrpPCF4TjaYoi6PKDcHUk1FcFWMs/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-xs font-medium rounded-full transition-colors shadow-sm"
+                >
+                  <div className="relative w-4 h-4 shrink-0">
+                    <Image
+                      src="/Google_Sheets_logo_(2014-2020).png"
+                      alt="Google Sheets"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  {t('checkExamples')}
+                </a>
+                <a
+                    href="https://pin.it/1aXGdf0VG"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-[#E60023] hover:bg-[#AD001A] text-white text-xs font-medium rounded-full transition-colors shadow-sm whitespace-nowrap"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.398 2.967 7.398 6.93 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" />
+                    </svg>
+                    {t('moodBoard')}
+                  </a>
+              </div>
               <p className="text-muted-foreground">{t('faqAnswer6')}</p>
             </div>
             <div>
