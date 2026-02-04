@@ -80,7 +80,7 @@ function getCETTimestamp(date: Date): string {
   // Apply timezone offset
   const utcTime = date.getTime();
   const cetOffset = isCEST ? 2 : 1; // CEST is UTC+2, CET is UTC+1
-  const cetTime = new Date(utcTime + (cetOffset * 60 * 60 * 1000));
+  const cetTime = new Date(utcTime - (cetOffset * 60 * 60 * 1000));
   
   // Format as YYYY-MM-DDTHH:MM:SS (without Z to indicate it's not UTC)
   const yearStr = cetTime.getFullYear();
