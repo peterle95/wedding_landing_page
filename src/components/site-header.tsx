@@ -50,7 +50,12 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+              className={cn(
+                "flex items-center text-lg font-medium transition-colors sm:text-sm",
+                item.key === "rsvp"
+                  ? "rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                  : "text-foreground/60 hover:text-foreground/80"
+              )}
               onClick={(e) => handleNavClick(e, item.href)}
             >
               {t(item.key)}
@@ -89,7 +94,12 @@ export function SiteHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-lg font-medium hover:text-primary"
+                      className={cn(
+                        "text-lg font-medium",
+                        item.key === "rsvp"
+                          ? "inline-flex w-fit rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+                          : "hover:text-primary"
+                      )}
                       onClick={(e) => handleNavClick(e, item.href, () => setOpen(false))}
                     >
                       {t(item.key)}
