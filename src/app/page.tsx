@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { PixelatedCard } from "@/components/ui/pixelated-card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
@@ -43,6 +44,9 @@ function HomeContent() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       <header className="text-center space-y-4">
+        <div>
+          <Badge variant="realistic">Official Invitation</Badge>
+        </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground">
           {t('weddingTitle')}
         </h1>
