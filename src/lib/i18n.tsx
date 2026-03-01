@@ -212,10 +212,10 @@ const translations: Translations = {
   },
 
   rsvpByDate: {
-    en: 'Kindly RSVP by March 15th, 2026.',
-    it: 'Fateci sapere entro il 15° Marzo 2026.',
-    ru: 'Пожалуйста, подтвердите ваше присутствие до 15 марта 2026 года.',
-    de: 'Bitte teile uns bis zum 15. März 2026 mit, ob du kommen kannst.',
+    en: 'Kindly RSVP by March 21st, 2026.',
+    it: 'Fateci sapere entro il 21° Marzo 2026.',
+    ru: 'Пожалуйста, подтвердите ваше присутствие до 21 марта 2026 года.',
+    de: 'Bitte teile uns bis zum 21. März 2026 mit, ob du kommen kannst.',
   },
 
   rsvpButton: {
