@@ -89,10 +89,10 @@ const translations: Translations = {
     de: 'Hochladen',
   },
   PickUpLocation: {
-    en: 'Pick Up Location (do be defined yet, come back later)',
-    it: 'Punto di ritrovo (non definito, torna più tardi)',
-    ru: 'Место сбора (еще не определено, вернитесь позже)',
-    de: 'Abholort (noch nicht definiert, komm später wieder)',
+    en: 'Pick Up Location',
+    it: 'Punto di ritrovo',
+    ru: 'Место сбора',
+    de: 'Abholort',
   },
   PickUpLocationDescription: {
     en: 'Click on the button to open Google Maps. Departure is at 15:00.',

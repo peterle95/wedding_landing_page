@@ -22,7 +22,7 @@ function HomeContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const address = "Piazza della Vittoria, Genova";
+  const address = "Scalinata delle tre caravelle, Genova";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 
