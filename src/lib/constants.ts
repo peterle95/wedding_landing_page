@@ -1,5 +1,5 @@
 // Wedding time in Central European Time (CET = UTC+1)
-export const weddingDate = "2026-06-27T17:00:00+01:00";
+export const weddingDate = "2026-06-27T16:00:00+01:00";
 
 export const photos = [
   { id: 1, src: "/ephesos.jpg", alt: "Couple smiling", hint: "couple smiling" },
