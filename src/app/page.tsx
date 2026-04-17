@@ -182,7 +182,7 @@ function HomeContent() {
                 <div className="space-y-3 text-left">
                   <div className="bg-white/70 dark:bg-gray-900/50 rounded-lg p-3">
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t('accountName')}</p>
-                    <p className="font-medium text-foreground">Peter & Liliia</p>
+                    <p className="font-medium text-foreground">Peter Molzer and Liliia Naumova</p>
                   </div>
                   <div className="bg-white/70 dark:bg-gray-900/50 rounded-lg p-3">
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t('ibanLabel')}</p>
