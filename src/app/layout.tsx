@@ -6,6 +6,7 @@ import { SiteHeader } from '@/components/site-header';
 import { cn } from '@/lib/utils';
 import { LanguageProvider } from '@/lib/i18n';
 import { Analytics } from '@vercel/analytics/next';
+import { MicrosoftClarity } from '@/components/MicrosoftClarity';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -60,6 +61,7 @@ export default function RootLayout({
           <Toaster />
         </LanguageProvider>
         <Analytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );
