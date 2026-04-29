@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/site-header';
 import { cn } from '@/lib/utils';
 import { LanguageProvider } from '@/lib/i18n';
+import { Analytics } from '@vercel/analytics/next';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -58,6 +59,7 @@ export default function RootLayout({
           </div>
           <Toaster />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
