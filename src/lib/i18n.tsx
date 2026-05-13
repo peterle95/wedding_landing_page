@@ -71,10 +71,10 @@ const translations: Translations = {
     de: 'Datum & Uhrzeit',
   },
   uploadTitle: {
-    en: 'Share Your Moments (coming soon)',
-    it: 'Condividi i Tuoi Momenti (prossimamente)',
-    ru: 'Поделитесь Моментами (скоро)',
-    de: 'Teile Deine Momente (kommt bald)',
+    en: 'Share Your Moments',
+    it: 'Condividi i Tuoi Momenti',
+    ru: 'Поделитесь Моментами',
+    de: 'Teile Deine Momente',
   },
   uploadDescription: {
     en: 'Upload your photos and videos to our shared album.',
