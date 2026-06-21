@@ -107,10 +107,10 @@ const translations: Translations = {
     de: 'Samstag, 27. Juni 2026',
   },
   ceremonyTime: {
-    en: 'Ceremony at 5:00 PM',
-    it: 'Cerimonia alle 17:00',
-    ru: 'Церемония в 17:00',
-    de: 'Ceremonie um 17:00 Uhr',
+    en: 'Ceremony at 6:00 PM. Please arrive at 5:00 PM at the venue.',
+    it: 'La cerimonia avrà inizio alle 18:00. Si prega di arrivare sul posto entro le 17:00.',
+    ru: 'Церемония в 18:00. Просим вас прибыть на место проведения мероприятия к 17:00.',
+    de: 'Die Ceremonie beginnt um 18:00 Uhr. Bitte komme bis spätestens 17:00 Uhr am Veranstaltungsort an.',
   },
   locationTitle: {
     en: 'Location',
