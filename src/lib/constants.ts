@@ -1,5 +1,5 @@
 // Italy observes CEST (UTC+2) in June: 17:00 local time on the wedding day.
-export const weddingDate = "2026-06-27T17:00:00+02:00";
+export const weddingDate = "2026-06-27T17:00:00+03:00";
 
 export const photos = [
   { id: 1, src: "/ephesos.jpg", alt: "Couple smiling", hint: "couple smiling" },
