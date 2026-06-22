@@ -107,10 +107,10 @@ const translations: Translations = {
     de: 'Samstag, 27. Juni 2026',
   },
   ceremonyTime: {
-    en: 'Ceremony at 6:00 PM. Please arrive at 5:00 PM at the venue.',
-    it: 'La cerimonia avrà inizio alle 18:00. Si prega di arrivare sul posto entro le 17:00.',
-    ru: 'Церемония в 18:00. Просим вас прибыть на место проведения мероприятия к 17:00.',
-    de: 'Die Ceremonie beginnt um 18:00 Uhr. Bitte komme bis spätestens 17:00 Uhr am Veranstaltungsort an.',
+    en: 'Ceremony at 5:30 PM. Please arrive at 5:00 PM at the venue.',
+    it: 'La cerimonia avrà inizio alle 17:30. Si prega di arrivare sul posto entro le 17:00.',
+    ru: 'Церемония в 17:30. Просим вас прибыть на место проведения мероприятия к 17:00.',
+    de: 'Die Ceremonie beginnt um 17:30 Uhr. Bitte komme bis spätestens 17:00 Uhr am Veranstaltungsort an.',
   },
   locationTitle: {
     en: 'Location',
@@ -561,10 +561,10 @@ const translations: Translations = {
     de: 'Um wie viel Uhr sollte ich ankommen?',
   },
   faqAnswer1: {
-    en: 'Please arrive at least 30 minutes before the ceremony starts at 5:00 PM to find your seat and settle in.',
-    it: 'Si prega di arrivare almeno 30 minuti prima dell\'inizio della cerimonia alle 17:00 per trovare il proprio posto e sistemarsi.',
-    ru: 'Пожалуйста, приезжайте как минимум за 30 минут до начала церемонии в 17:00, чтобы найти свое место и устроиться.',
-    de: 'Bitte komme mindestens 30 Minuten vor Beginn der Zeremonie um 17:00 Uhr, um deinen Platz zu finden und dich einzurichten.',
+    en: 'Please arrive at least 30 minutes before the ceremony starts at 5:30 PM to find your seat and settle in.',
+    it: 'Si prega di arrivare almeno 30 minuti prima dell\'inizio della cerimonia alle 17:30 per trovare il proprio posto e sistemarsi.',
+    ru: 'Пожалуйста, приезжайте как минимум за 30 минут до начала церемонии в 17:30, чтобы найти свое место и устроиться.',
+    de: 'Bitte komme mindestens 30 Minuten vor Beginn der Zeremonie um 17:30 Uhr, um deinen Platz zu finden und dich einzurichten.',
   },
   faqQuestion2: {
     en: 'Is there parking available?',
