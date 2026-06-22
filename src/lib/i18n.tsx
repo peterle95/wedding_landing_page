@@ -95,10 +95,10 @@ const translations: Translations = {
     de: 'Abholort',
   },
   PickUpLocationDescription: {
-    en: 'Click on the button to open Google Maps. Departure is at 15:00.',
-    it: 'Clicca sul pulsante per aprire Google Maps. La partenza è alle 15:00.',
-    ru: 'Нажмите на кнопку, чтобы открыть Google Maps. Отправление в 15:00.',
-    de: 'Klicke auf den Button, um Google Maps zu öffnen. Abfahrt ist um 15:00.',
+    en: 'Click on the button to open Google Maps. Departure is at 16:00.',
+    it: 'Clicca sul pulsante per aprire Google Maps. La partenza è alle 16:00.',
+    ru: 'Нажмите на кнопку, чтобы открыть Google Maps. Отправление в 16:00.',
+    de: 'Klicke auf den Button, um Google Maps zu öffnen. Abfahrt ist um 16:00.',
   },
   eventDate: {
     en: 'Saturday, June 27th, 2026',
