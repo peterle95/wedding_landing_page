@@ -191,6 +191,10 @@ function HomeContent() {
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t('ibanLabel')}</p>
                     <p className="font-mono text-sm font-medium text-foreground tracking-wider">BE84 9741 0355 2159</p>
                   </div>
+                  <div className="bg-white/70 dark:bg-gray-900/50 rounded-lg p-3">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">BIC</p>
+                    <p className="font-mono text-sm font-medium text-foreground tracking-wider">PESOBEB1</p>
+                  </div>
                 </div>
               </div>
 
